@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'MainController@index');
+Route::get('/inner', 'MainController@inner');
+Route::get('/shop', 'MainController@shop');
 
 Route::get('/ad', function (){
     return view('admin.index');
