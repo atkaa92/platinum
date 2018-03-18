@@ -29,7 +29,7 @@ setlocale(LC_CTYPE, 'en_US'); //correct transliteration
 |
 */
 
-define('USE_ACCESS_KEYS', false); // TRUE or FALSE
+define('USE_ACCESS_KEYS', true); // TRUE or FALSE
 
 /*
 |--------------------------------------------------------------------------
@@ -148,7 +148,7 @@ $config = array(
 	|
 	*/
 
-	'access_keys' => array(),
+	'access_keys' => array('Pn34pn'),
 
 	//--------------------------------------------------------------------------------------------------------
 	// YOU CAN COPY AND CHANGE THESE VARIABLES INTO FOLDERS config.php FILES TO CUSTOMIZE EACH FOLDER OPTIONS
