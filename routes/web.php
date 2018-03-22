@@ -14,13 +14,18 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-Route::get('/', 'MainController@index');
-Route::get('/inner', 'MainController@inner');
-Route::get('/shop', 'MainController@shop');
-
-Route::get('/ad', function (){
-    return view('admin.index');
-});
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+    function()
+    {
+        /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+        Route::get('/', 'MainController@index');
+        Route::get('/inner', 'MainController@inner');
+        Route::get('/shop', 'MainController@shop');
+    });
 
 
 
