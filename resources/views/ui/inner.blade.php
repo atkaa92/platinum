@@ -26,23 +26,23 @@
                         <div class='slideCont' u='slides'>
 
                             <div class="urgent">
-                                <img u='image' src='images/slider/s1.jpg'/>
-                                <img u='thumb' src='images/slider/thumbs/s1.jpg'/>
+                                <img u='image' src="{{ asset('images/slider/s1.jpg') }}"/>
+                                <img u='thumb' src="{{ asset('images/slider/thumbs/s1.jpg') }}"/>
                             </div>
 
                             <div>
-                                <img u='image' src='images/slider/s2.jpg'/>
-                                <img u='thumb' src='images/slider/thumbs/s2.jpg'/>
+                                <img u='image' src="{{ asset('images/slider/s2.jpg') }}"/>
+                                <img u='thumb' src="{{ asset('images/slider/thumbs/s2.jpg') }}"/>
                             </div>
 
                             <div>
-                                <img u='image' src='images/slider/s3.jpg'/>
-                                <img u='thumb' src='images/slider/thumbs/s3.jpg'/>
+                                <img u='image' src="{{ asset('images/slider/s3.jpg') }}"/>
+                                <img u='thumb' src="{{ asset('images/slider/thumbs/s3.jpg') }}"/>
                             </div>
 
                             <div>
-                                <img u='image' src='images/slider/s4.jpg'/>
-                                <img u='thumb' src='images/slider/thumbs/s4.jpg'/>
+                                <img u='image' src="{{ asset('images/slider/s4.jpg') }}"/>
+                                <img u='thumb' src="{{ asset('images/slider/thumbs/s4.jpg') }}"/>
                             </div>
                         </div>
                         <div u="thumbnavigator" class="jssort07" id="thumb">
@@ -151,7 +151,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover product__cover--urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -181,7 +181,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover product__cover--urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -211,7 +211,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover product__cover--urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -241,7 +241,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover product__cover--urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
