@@ -114,7 +114,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -144,7 +144,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -174,7 +174,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -204,7 +204,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover urgent">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -245,7 +245,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -278,7 +278,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/2.jpg" alt="">
+                            <img src="{{ asset('images/2.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -311,7 +311,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/3.jpg" alt="">
+                            <img src="{{ asset('images/3.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -344,7 +344,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/3.jpg" alt="">
+                            <img src="{{ asset('images/3.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -377,7 +377,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -410,7 +410,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/3.jpg" alt="">
+                            <img src="{{ asset('images/3.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -443,7 +443,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/1.jpg" alt="">
+                            <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -476,7 +476,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/2.jpg" alt="">
+                            <img src="{{ asset('images/2.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
@@ -509,7 +509,7 @@
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
-                            <img src="./images/3.jpg" alt="">
+                            <img src="{{ asset('images/3.jpg') }}" alt="">
                         </div>
 
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
