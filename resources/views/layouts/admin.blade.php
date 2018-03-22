@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> ModularAdmin - Free Dashboard Theme | HTML Version </title>
+    <base href="{{ url('/') }}">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -19,7 +20,7 @@
             document.write('<link rel="stylesheet" id="theme-style" href="/css/app-' + themeName + '.css">');
         }
         else {
-            document.write('<link rel="stylesheet" id="theme-style" href="{{ asset('css/app.css') }}">');
+            document.write('<link rel="stylesheet" id="theme-style" href="/css/app.css">');
         }
     </script>
     </head>
@@ -143,15 +144,21 @@
                                 </li>
                                 <li>
                                     <a href="">
-                                        <i class="fa fa-th-large"></i> Items Manager
+                                        <i class="fa fa-car"></i> Products
                                         <i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
                                         <li>
-                                            <a href="items-list.html"> Items List </a>
+                                            <a href="{{ url('admin/new-product') }}">
+                                                <i class="fa fa-plus-circle"></i>
+                                                 Add product
+                                            </a>
                                         </li>
                                         <li>
-                                            <a href="item-editor.html"> Item Editor </a>
+                                            <a href="admin/all-products">
+                                                <i class="fa fa-list-alt"></i>
+                                                ALl products
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>

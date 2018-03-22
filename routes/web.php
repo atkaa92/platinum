@@ -30,10 +30,12 @@ Route::group(
 
 
 Route::group([
-    'prefix' => '/admin',
+    'prefix' => 'admin',
     'middleware' => 'auth',
     'namespace' => 'Admin'
 ], function (){
     Route::get('/', 'DashboardController@index');
+    Route::get('/new-product', 'ProductController@addProduct');
+    Route::get('/all-products', 'ProductController@allProducts');
 });
 

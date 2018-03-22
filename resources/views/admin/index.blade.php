@@ -2,8 +2,8 @@
 
 @section('admin')
     <div class="title-block">
-        <h3 class="title"> Buttons </h3>
-        <p class="title-description"> Sample button elements </p>
+        <h3 class="title"> Dashboard </h3>
+        <p class="title-description"> Hi PLATINUM admni! </p>
     </div>
     <section class="section">
         <div class="row sameheight-container">
