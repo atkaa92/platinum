@@ -482,25 +482,21 @@
                         $(this).removeClass('menu__link--active')
                     });
                     $("#myNavbar a[href='#get-in-touch']").addClass('menu__link--active')
-                    window.location.hash = "#get-in-touch"
                 }else if(scrollValue >= servicesOffsetTop){
                     $("#myNavbar a").each(function(){
                         $(this).removeClass('menu__link--active')
                     });
                     $("#myNavbar a[href='#services']").addClass('menu__link--active')
-                    window.location.hash = "#services"
                 }else if(scrollValue >= aboutOffsetTop){
                     $("#myNavbar a").each(function(){
                         $(this).removeClass('menu__link--active')
                     });
                     $("#myNavbar a[href='#about']").addClass('menu__link--active')
-                    window.location.hash = "#about"
                 }else{
                     $("#myNavbar a").each(function(){
                         $(this).removeClass('menu__link--active')
                     });
                     $("#myNavbar a[href='#garage']").addClass('menu__link--active')
-                    window.location.hash = "#garage"
                 }
             })
 
