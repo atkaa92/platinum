@@ -7,7 +7,7 @@
     <div class="l-container">
         <h1 class="banner__title">BEST <span>CARS</span></h1>
         <div class="banner__car">
-            <img src="images/car.png" alt="">
+            <img src="{{ asset('images/car.png') }}" alt="">
         </div>
     </div>
 

@@ -164,16 +164,15 @@
                                 </li>
                                 <li>
                                     <a href="">
-                                        <i class="fa fa-area-chart"></i> Charts
+                                        <i class="fa fa-american-sign-language-interpreting"></i> Services
                                         <i class="fa arrow"></i>
                                     </a>
                                     <ul class="sidebar-nav">
-                                        <li>
-                                            <a href="charts-flot.html"> Flot Charts </a>
-                                        </li>
-                                        <li>
-                                            <a href="charts-morris.html"> Morris Charts </a>
-                                        </li>
+                                        @foreach($allservices as $s)
+                                            <li>
+                                                <a href="{{ url('/admin/service/'.$s->id ) }}"> {{ $s->title }} </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li>
@@ -525,5 +524,6 @@
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/fancybox.js') }}"></script>
         <script src="{{ asset('js/admin.js') }}"></script>
+        @stack('scripts')
     </body>
 </html>

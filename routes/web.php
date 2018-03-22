@@ -37,5 +37,7 @@ Route::group([
     Route::get('/', 'DashboardController@index');
     Route::get('/new-product', 'ProductController@addProduct');
     Route::get('/all-products', 'ProductController@allProducts');
+    Route::get('/service/{id}', 'ServiceController@getService');
+    Route::post('/service/{id}', 'ServiceController@updateService');
 });
 
