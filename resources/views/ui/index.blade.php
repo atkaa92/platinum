@@ -3,7 +3,7 @@
 @section('main_container')
 
 
-<section class="l-banner banner--home banner">
+<section class="l-banner banner--home banner" id="garage">
     <div class="l-container">
         <h1 class="banner__title">BEST <span>CARS</span></h1>
         <div class="banner__car">
@@ -24,10 +24,9 @@
     </svg>
 </section>
 
-<section class="l-section l-section--color-bg l-section--about">
+<section class="l-section l-section--color-bg l-section--about" id="about">
     <div class="l-container">
         <h2 class="title">about</h2>
-
         <div class="about">
             <div class="l-row">
                 <div class="l-col-lg-4 l-col-md-6">
@@ -106,7 +105,7 @@
     </svg>
 </section>
 
-<section class="l-section l-section--services">
+<section class="l-section l-section--services" id="services">
     <div class="l-container">
         <h2 class="title">services</h2>
 
@@ -301,7 +300,7 @@
     </div>
 </section>
 
-<section class="l-section l-section--statistics l-section--has-top-shape">
+<section class="l-section l-section--statistics l-section--has-top-shape" >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 241" class="shape shape--top">
         <path id="top" class="cls-1" d="M2196,2409H4116v1l-960,240-960-240v-1Z" transform="translate(-2196 -2409)"/>
     </svg>
@@ -345,7 +344,7 @@
     </svg>
 </section>
 
-<section class="l-section">
+<section class="l-section" id="get-in-touch">
     <div class="l-container">
         <div class="title-wrapper">
             <h2 class="title title--smaller title--with-subtitle">GET IN TOUCH</h2>
@@ -437,18 +436,18 @@
 </section>
 
 
-<ul class="menu">
+<ul class="menu" id="myNavbar">
 	<li class="menu__item">
-			<a href="#" class="menu__link menu__link--active">Garage</a>
+			<a href="#garage" class="menu__link menu__link--active">Garage</a>
 	</li>
 	<li class="menu__item">
-			<a href="#" class="menu__link">About</a>
+			<a href="#about" class="menu__link">About</a>
 	</li>
 	<li class="menu__item">
-			<a href="#" class="menu__link">Services</a>
+			<a href="#services" class="menu__link">Services</a>
 	</li>
 	<li class="menu__item">
-			<a href="#" class="menu__link">Get in touch</a>
+			<a href="#get-in-touch" class="menu__link">Get in touch</a>
 	</li>
 </ul>
 
@@ -467,5 +466,55 @@
     <script src="{{ asset('js/map.js') }} "></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqEfohxeFk9xnGeu0w2j69-evkfuZxvD0&callback=initMap">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function (event) {
+                var scrollValue = $(window).scrollTop();
+                var aboutOffsetTop = $("#about").offset().top;
+                var servicesOffsetTop = $("#services").offset().top;
+                var getintouchOffsetTop = $("#get-in-touch").offset().top;
+
+                if(scrollValue >= getintouchOffsetTop){
+                    $("#myNavbar a").each(function(){
+                        $(this).removeClass('menu__link--active')
+                    });
+                    $("#myNavbar a[href='#get-in-touch']").addClass('menu__link--active')
+                }else if(scrollValue >= servicesOffsetTop){
+                    $("#myNavbar a").each(function(){
+                        $(this).removeClass('menu__link--active')
+                    });
+                    $("#myNavbar a[href='#services']").addClass('menu__link--active')
+                }else if(scrollValue >= aboutOffsetTop){
+                    $("#myNavbar a").each(function(){
+                        $(this).removeClass('menu__link--active')
+                    });
+                    $("#myNavbar a[href='#about']").addClass('menu__link--active')
+                }else{
+                    $("#myNavbar a").each(function(){
+                        $(this).removeClass('menu__link--active')
+                    });
+                    $("#myNavbar a[href='#garage']").addClass('menu__link--active')
+                }
+            })
+
+            $("#myNavbar a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }  
+                $("#myNavbar a").each(function(){
+                    $(this).removeClass('menu__link--active')
+                });
+                $(this).addClass('menu__link--active')
+            });
+        });
     </script>
 @endpush
