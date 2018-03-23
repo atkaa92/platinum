@@ -7,10 +7,12 @@
     <base href="{{ url('/') }}">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="{{ asset('css/vendor.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fancybox.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css')}}">
     <!-- Theme initialization -->
     <script>
         var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
@@ -98,6 +100,11 @@
                                             </a>
                                         </li>
                                     </ul>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/manifactures') }}">
+                                        <i class="fa fa-wrench"></i> Manifactures
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="">

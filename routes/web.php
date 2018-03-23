@@ -40,6 +40,11 @@ Route::group([
 
     Route::get('/new-product', 'ProductController@addProduct');
     Route::get('/all-products', 'ProductController@allProducts');
+
+    Route::get('/manifactures', 'ProductController@getManufactures');
+    Route::post('/save-manufactures', 'ProductController@saveManufactures');
+    Route::get('/remove-manufacture/{manufacture_id}', 'ProductController@removeManufacturerById');
+
     Route::get('/service/{id}', 'ServiceController@getService');
     Route::post('/service/{id}', 'ServiceController@updateService');
 });
