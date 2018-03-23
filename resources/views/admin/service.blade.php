@@ -2,8 +2,8 @@
 
 @section('admin')
     <div class="title-block">
-        <h3 class="title"> {{ $service->en_title }} </h3>
-        <p class="title-description"> Service </p>
+        <h3 class="title"> Service </h3>
+        <p class="title-description"> {{ $service->en_title }} </p>
     </div>
     @include('admin/messages')
     <form method="post" action="/admin/service/{{ $service->id }}">
@@ -11,14 +11,14 @@
         <section class="section">
             <div class="row sameheight-container">
                 <div class="col-md-4">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <div class="header-block">
-                                <p class="title"> Armenian section </p>
+                    <div class="card card-block ">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <div class="header-block">
+                                    <p class="title"> Armenian section </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card card-block ">
                         <div class="form-group">
                             <label class="control-label">Service Title</label>
                             <input  name="hy_title" type="text" value="{{ $service->hy_title }}" class="form-control boxed" placeholder="Description Title" required> 
@@ -52,15 +52,15 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card card-warning">
-                        <div class="card-header">
-                            <div class="header-block">
-                                <p class="title"> English section </p>
+                    <div class="card card-block ">
+                        <div class="card card-warning">
+                            <div class="card-header">
+                                <div class="header-block">
+                                    <p class="title"> English section </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card card-block ">
-                        <div class="form-group">
+                        <div class="form-group ">
                             <label class="control-label">Service Title</label>
                             <input  name="en_title" type="text" value="{{ $service->en_title }}" class="form-control boxed" placeholder="Description Title" required> 
                         </div>
@@ -93,14 +93,14 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card card-danger">
-                        <div class="card-header">
-                            <div class="header-block">
-                                <p class="title"> Russian section </p>
+                    <div class="card card-block ">
+                        <div class="card card-danger">
+                            <div class="card-header">
+                                <div class="header-block">
+                                    <p class="title"> Russian section </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card card-block ">
                         <div class="form-group">
                             <label class="control-label">Service Title</label>
                             <input  name="ru_title" type="text" value="{{ $service->ru_title }}" class="form-control boxed" placeholder="Description Title" required> 

@@ -35,6 +35,9 @@ Route::group([
     'namespace' => 'Admin'
 ], function (){
     Route::get('/', 'DashboardController@index');
+    Route::get('/about/{id}', 'DashboardController@getAbout');
+    Route::post('/about/{id}', 'DashboardController@updateAbout');
+
     Route::get('/new-product', 'ProductController@addProduct');
     Route::get('/all-products', 'ProductController@allProducts');
     Route::get('/service/{id}', 'ServiceController@getService');

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Service;
+use App\Models\About;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        $allAbouts = About::get();
+        view()->share('allAbouts', $allAbouts);
 
         $allservices = Service::get();
         view()->share('allservices', $allservices);
