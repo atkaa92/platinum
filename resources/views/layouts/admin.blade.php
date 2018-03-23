@@ -170,7 +170,7 @@
                                     <ul class="sidebar-nav">
                                         @foreach($allservices as $s)
                                             <li>
-                                                <a href="{{ url('/admin/service/'.$s->id ) }}"> {{ $s->title }} </a>
+                                                <a href="{{ url('/admin/service/'.$s->id ) }}"> {{ $s->en_title }} </a>
                                             </li>
                                         @endforeach
                                     </ul>
