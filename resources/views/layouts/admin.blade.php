@@ -71,11 +71,11 @@
                         </div>
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
-                                <li class="active">
+                                <li class="{{ $currPage == 'dashboard' ? 'active' : '' }}">
                                     <a href="{{ url('/admin') }}">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
-                                <li>
+                                <li class="{{ $currPage == 'products' ? 'active' : '' }}">
                                     <a href="">
                                         <i class="fa fa-car"></i> Products
                                         <i class="fa arrow"></i>
@@ -95,12 +95,12 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li>
+                                <li class="{{ $currPage == 'manifactures' ? 'active' : '' }}">
                                     <a href="{{ url('admin/manifactures') }}">
                                         <i class="fa fa-wrench"></i> Manifactures
                                     </a>
                                 </li>
-                                <li>
+                                <li class="{{ $currPage == 'services' ? 'active' : '' }}">
                                     <a href="">
                                         <i class="fa fa-american-sign-language-interpreting"></i> Services
                                         <i class="fa arrow"></i>
@@ -113,7 +113,7 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li>
+                                <li class="{{ $currPage == 'abouts' ? 'active' : '' }}">
                                     <a href="">
                                         <i class="fa fa-object-group"></i> Abouts
                                         <i class="fa arrow"></i>
@@ -370,7 +370,7 @@
 
                 <footer class="footer">
                     <div class="footer-block author">
-                        
+
                     </div>
                 </footer>
 

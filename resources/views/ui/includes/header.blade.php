@@ -5,3 +5,15 @@
 			</a>
 	</div>
 </header>
+<div class="language">
+    <ul>
+        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <li >
+                <a 
+                class="languageItem {{ LaravelLocalization::getCurrentLocale() == $localeCode ? ' whiteShadow' : '' }}" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                    {{ $properties['native'] }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</div>

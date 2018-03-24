@@ -11,7 +11,8 @@ class ServiceController extends Controller
     public function getService($id)
     {
         $service = Service::find($id);
-        return view('admin.service')->with(compact('service'));
+        $currPage = 'services';
+        return view('admin.service')->with(compact('service', 'currPage'));
     }
 
     public function updateService($id)

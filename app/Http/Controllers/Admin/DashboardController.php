@@ -10,13 +10,15 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $currPage = 'dashboard';
+        return view('admin.index')->with(compact('currPage'));
     }
 
     public function getAbout($id)
     {
         $about = About::find($id);
-        return view('admin.about')->with(compact('about'));
+        $currPage = 'abouts';
+        return view('admin.about')->with(compact('about', 'currPage'));
     }
 
     public function updateAbout($id)

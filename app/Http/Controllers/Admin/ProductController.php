@@ -12,18 +12,21 @@ class ProductController extends Controller
     public function addProduct()
     {
         $manufacturers = Manufacturer::get();
-        return view('admin.new-product')->with(compact('manufacturers'));
+        $currPage = 'products';
+        return view('admin.new-product')->with(compact('manufacturers', 'currPage'));
     }
 
     public function allProducts()
     {
-        return view('admin.all-products');
+        $currPage = 'products';
+        return view('admin.all-product')->with(compact('currPage'));
     }
 
     public function getManufactures()
     {
         $manufactures = Manufacturer::get();
-        return view('admin.manufacturers')->with(compact('manufactures'));
+        $currPage = 'manifactures';        
+        return view('admin.manufacturers')->with(compact('manufactures', 'currPage'));
     }
 
     public function saveManufactures(Request $request)
