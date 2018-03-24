@@ -44,5 +44,18 @@ return [
 	'search-result' => '',
 	'other' => '',
 	'urgent-offers' => '',
+
+	//inner
 	'releted-offers' => '',
+	'year' => '',
+	'transmission-pack' => '',
+	'exterior-color' => '',
+	'interior-type' => '',
+	'location' => '',
+	'body-type' => '',
+	'doors' => '',
+	'fuel-used' => '',
+	'custom-clearance' => '',
+	'description' => '',
+	
 ];

@@ -24,22 +24,18 @@
                 <div class='minSlider'>
                     <div id='slider1_container'>
                         <div class='slideCont' u='slides'>
-
                             <div class="urgent">
                                 <img u='image' src="{{ asset('images/slider/s1.jpg') }}"/>
                                 <img u='thumb' src="{{ asset('images/slider/thumbs/s1.jpg') }}"/>
                             </div>
-
                             <div>
                                 <img u='image' src="{{ asset('images/slider/s2.jpg') }}"/>
                                 <img u='thumb' src="{{ asset('images/slider/thumbs/s2.jpg') }}"/>
                             </div>
-
                             <div>
                                 <img u='image' src="{{ asset('images/slider/s3.jpg') }}"/>
                                 <img u='thumb' src="{{ asset('images/slider/thumbs/s3.jpg') }}"/>
                             </div>
-
                             <div>
                                 <img u='image' src="{{ asset('images/slider/s4.jpg') }}"/>
                                 <img u='thumb' src="{{ asset('images/slider/thumbs/s4.jpg') }}"/>
@@ -55,18 +51,17 @@
                                 </div>
                             </div>
                             <span u="arrowleft" class="jssora11l">
-                                        <i class="fa fa-angle-left"></i>
-                                    </span>
+                                <i class="fa fa-angle-left"></i>
+                            </span>
                             <span u="arrowright" class="jssora11r">
-                                        <i class="fa fa-angle-right"></i>
-                                    </span>
+                                <i class="fa fa-angle-right"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="l-col-lg-6 l-col-lg-int">
                 <h3 CLASS="title-secondary title-secondary--left">Mercedes-Benz S-Class Coupe</h3>
-
                 <div class="car-info">
                     <div class="car-info__header">
                         <div class="car-info__left">
@@ -76,49 +71,38 @@
                             fb share
                         </div>
                     </div>
-
                     <div class="car-info__body">
                         <ul class="car-info__list">
                             <li class="car-info__list-item">
-                                Year: <span>2016</span>
+                                {{ trans('data.year') }}: <span>2016</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Transmission Pack: <span>Automat</span>
+                                {{ trans('data.transmission-pack') }}: <span>Automat</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Exterior Color: <span>Black Matt</span>
+                                {{ trans('data.exterior-color') }}: <span>Black Matt</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Interior Type: <span>Black/Gray</span>
+                                {{ trans('data.interior-type') }}: <span>Black/Gray</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Location: <span>USA, Califonria</span>
+                                {{ trans('data.location') }}: <span>USA, Califonria</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Body Type: <span>------------</span>
+                                {{ trans('data.body-type') }}: <span>------------</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Doors: <span>5</span>
+                                {{ trans('data.doors') }}: <span>5</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Fuel Used: <span>------------</span>
+                                {{ trans('data.fuel-used') }}: <span>------------</span>
                             </li>
-
                             <li class="car-info__list-item">
-                                Custom Clearance: <span>Passed</span>
+                                {{ trans('data.custom-clearance') }}: <span>Passed</span>
                             </li>
                         </ul>
-
                         <article class="car-info__desc">
-                            <h4 class="car-info__title">Description</h4>
-
+                            <h4 class="car-info__title">{{ trans('data.description') }}</h4>
                             <p>
                                 Prior-Design has released new pics of their PD75SC wide-body kit. We got
                                 our first look at this product a few months back. Looking at the exterior, it’s

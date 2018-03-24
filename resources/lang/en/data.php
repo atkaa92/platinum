@@ -44,6 +44,17 @@ return [
 	'search-result' => 'Search result',
 	'other' => 'Other',
 	'urgent-offers' => 'Urgent offers',
-	'releted-offers' => 'Releted offers',
 	
+	//inner
+	'releted-offers' => 'Releted offers',
+	'year' => 'Year',
+	'transmission-pack' => 'Transmission Pack',
+	'exterior-color' => 'Exterior Color',
+	'interior-type' => 'Interior Type',
+	'location' => 'Location',
+	'body-type' => 'Body Type',
+	'doors' => 'Doors',
+	'fuel-used' => 'Fuel Used',
+	'custom-clearance' => 'Custom Clearance',
+	'description' => 'Description',
 ];
