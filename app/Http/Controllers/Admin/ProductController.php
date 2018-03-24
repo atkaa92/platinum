@@ -11,7 +11,8 @@ class ProductController extends Controller
 
     public function addProduct()
     {
-        return view('admin.new-product');
+        $manufacturers = Manufacturer::get();
+        return view('admin.new-product')->with(compact('manufacturers'));
     }
 
     public function allProducts()
