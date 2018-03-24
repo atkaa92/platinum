@@ -9,6 +9,7 @@
         <title>Platinum</title>
         @stack('stylesheets')
         <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{ asset('css/uiStyle.css')}}">
     </head>
     <body>
         <div class="body">

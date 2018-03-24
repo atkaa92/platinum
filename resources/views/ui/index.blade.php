@@ -213,7 +213,21 @@
     </svg>
     <div class="l-map" id="map"></div>
 </section>
+<div class="language">
+    <ul>
+        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <li >
+                <a 
+                
+                class="languageItem {{ LaravelLocalization::getCurrentLocale() == $localeCode ? ' whiteShadow' : '' }}" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                    {{ $properties['native'] }}
+                </a>
+            </li>
+        @endforeach
+    </ul>
+</div>
 
+    
 <ul class="menu" id="myNavbar">
 	<li class="menu__item">
 			<a href="#garage" class="menu__link menu__link--active">Garage</a>
@@ -292,6 +306,13 @@
                 });
                 $(this).addClass('menu__link--active')
             });
+
+            {{--  $(".languageItem").on('click', function(event) {
+                $(".languageItem").each(function(){
+                    $(this).css("text-shadow", " 0px 1px 0px white")
+                });
+                $(this).css("text-shadow", " 0px 1px 0px #df445e")
+            })  --}}
         });
     </script>
 @endpush

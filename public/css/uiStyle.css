@@ -1,0 +1,21 @@
+.language{
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	z-index: 10000000000;
+}
+
+.language ul li{
+	display: inline-block;
+}
+
+.language ul li a{
+	padding: 0  2px;
+	color: #93939e!important; 
+}
+
+.whiteShadow{
+	padding-bottom: 3px!important;
+	text-shadow: 0px 1px 0px white;
+	border-bottom: 2px solid #df445e;
+}
