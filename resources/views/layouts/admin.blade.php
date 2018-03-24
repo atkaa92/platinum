@@ -65,20 +65,14 @@
                     <div class="sidebar-container">
                         <div class="sidebar-header">
                             <div class="brand">
-                                <div class="logo">
-                                    <span class="l l1"></span>
-                                    <span class="l l2"></span>
-                                    <span class="l l3"></span>
-                                    <span class="l l4"></span>
-                                    <span class="l l5"></span>
-                                </div>
-                                <a target="_blank" style="color:#fff;text-decoration:none" href="{{ url('/')}}"> Platinum</a>
+                                <a target="_blank" style="color:#fff;text-decoration:none" href="{{ url('/')}}"><img src="{{ asset('images/logo.png') }}" style="width: 80%;">
+                                 </a>
                             </div>
                         </div>
                         <nav class="menu">
                             <ul class="sidebar-menu metismenu" id="sidebar-menu">
                                 <li class="active">
-                                    <a href="index.html">
+                                    <a href="{{ url('/admin') }}">
                                         <i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li>
