@@ -84,13 +84,13 @@
                                         <li>
                                             <a href="{{ url('admin/new-product') }}">
                                                 <i class="fa fa-plus-circle"></i>
-                                                 Add product
+                                                  Add product
                                             </a>
                                         </li>
                                         <li>
                                             <a href="admin/all-products">
                                                 <i class="fa fa-list-alt"></i>
-                                                ALl products
+                                                  All products
                                             </a>
                                         </li>
                                     </ul>
