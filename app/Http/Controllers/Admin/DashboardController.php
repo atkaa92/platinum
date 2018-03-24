@@ -5,13 +5,26 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\Task;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        $currPage = 'dashboard';
-        return view('admin.index')->with(compact('currPage'));
+        $tasks = Task::orderBy('id', 'desc')->get();
+        $users = User::count();
+        $taskA = Task::where('completed', 0)->count();
+        $taskC = Task::where('completed', 1)->count();
+        $data = [
+            'currPage' => 'dashboard',
+            'tasks' => $tasks,
+            'taskA' => $taskA,
+            'taskC' => $taskC,
+            'users' => $users,
+        ];
+        
+        return view('admin.index')->with($data);
     }
 
     public function getAbout($id)
@@ -32,5 +45,11 @@ class DashboardController extends Controller
         $about->ru_desc = request('ru_desc');
         $about->save();
         return redirect()->back()->with('success','About updated!');
+    }
+
+    public function getConfigs()
+    {
+        $currPage = 'config';
+        return view('admin.config')->with(compact('currPage'));
     }
 }

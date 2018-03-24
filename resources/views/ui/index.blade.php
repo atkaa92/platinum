@@ -10,7 +10,7 @@
     </div>
     <div class="banner__btn-wrapper">
         <div class="l-container">
-            <a href="{{ url('/shop') }}" class="primary-btn banner__btn  banner__btn--first">Go to shop</a><br><br><br>
+            <a href="{{ url('/shop') }}" class="primary-btn banner__btn  banner__btn--first">{{ trans('data.go-to-shop') }}</a><br><br><br>
             <a href="#about" class="arrow-down banner__btn"></a>
         </div>
     </div>
@@ -21,7 +21,7 @@
 </section>
 <section class="l-section l-section--color-bg l-section--about" id="about">
     <div class="l-container">
-        <h2 class="title">about</h2>
+        <h2 class="title">{{ trans('data.menu-about') }}</h2>
         <div class="about">
             <div class="l-row">
                 @foreach($abouts as $a)
@@ -49,7 +49,7 @@
 </section>
 <section class="l-section l-section--services" id="services">
     <div class="l-container">
-        <h2 class="title">services</h2>
+        <h2 class="title">{{ trans('data.menu-services') }}</h2>
 
         <ul class="nav tabs" id="pills-tab" role="tablist">
             @foreach($services as $k => $s)
@@ -108,30 +108,30 @@
         <path id="top" class="cls-1" d="M2196,2409H4116v1l-960,240-960-240v-1Z" transform="translate(-2196 -2409)"/>
     </svg>
     <div class="l-container">
-        <h2 class="title-secondary title-secondary--light title-secondary--int">WE DEAL IN LARGE NUMBER OF VEHICLES</h2>
+        <h2 class="title-secondary title-secondary--light title-secondary--int">{{ trans('data.we-deal') }}</h2>
         <ul class="statistics">
             <li class="statistics__item">
                 <span class="statistics__number">15</span>
-                <h4 class="statistics__title">Motocrycle</h4>
+                <h4 class="statistics__title">{{ trans('data.motocrycle') }}</h4>
             </li>
             <li class="statistics__item">
                 <span class="statistics__number">58</span>
-                <h4 class="statistics__title">Coupe</h4>
+                <h4 class="statistics__title">{{ trans('data.coupe') }}</h4>
             </li>
             <li class="statistics__item">
                 <span class="statistics__number">64</span>
-                <h4 class="statistics__title">Sedan</h4>
+                <h4 class="statistics__title">{{ trans('data.sedan') }}</h4>
             </li>
             <li class="statistics__item">
                 <span class="statistics__number">120</span>
-                <h4 class="statistics__title">Suv</h4>
+                <h4 class="statistics__title">{{ trans('data.suv') }}</h4>
             </li>
             <li class="statistics__item">
                 <span class="statistics__number">7</span>
-                <h4 class="statistics__title">Luxury car</h4>
+                <h4 class="statistics__title">{{ trans('data.luxury-car') }}</h4>
             </li>
         </ul>
-        <a href="{{ url('/shop') }}" class="primary-btn banner__btn">Go to shop</a>
+        <a href="{{ url('/shop') }}" class="primary-btn banner__btn">{{ trans('data.go-to-shop') }}</a>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="1920" viewBox="0 0 1920 241" class="shape shape--bottom">
         <path id="bottom" class="cls-1" d="M4116,3151H2196V2910l960,240,960-240v241Z"
@@ -141,65 +141,62 @@
 <section class="l-section" id="get-in-touch">
     <div class="l-container">
         <div class="title-wrapper">
-            <h2 class="title title--smaller title--with-subtitle">GET IN TOUCH</h2>
+            <h2 class="title title--smaller title--with-subtitle">{{ trans('data.menu-get-in-touch') }}</h2>
             <div class="sub-title">
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                    been the industrys standard dummy text ever since the 1500s, when an unknown printer took a
-                    galley of type and scrambled it to make a type specimen book.
-                </p>
+                <p>{{ trans('data.get-in-touch-desc') }}</p>
             </div>
         </div>
         <div class="l-row">
             <div class="l-col-md-7">
-                <form action="#" class="form">
+                <form action="{{ url('/sentMail')}}" method="post" class="form">
+                    {{ csrf_field() }}
                     <div class="form__group">
-                        <label for="name" class="form__label">Name <i class="fas fa-asterisk"></i></label>
-                        <input type="text" class="form__field" id="name">
+                        <label for="name" class="form__label">{{ trans('data.name') }} <i class="fas fa-asterisk"></i></label>
+                        <input required name="name" type="text" class="form__field" id="name">
                     </div>
                     <div class="form__group">
-                        <label for="email" class="form__label">E-mail <i class="fas fa-asterisk"></i></label>
-                        <input type="text" class="form__field form__field--bg" id="email">
+                        <label for="email" class="form__label">{{ trans('data.email') }} <i class="fas fa-asterisk"></i></label>
+                        <input required name="email" type="email" class="form__field form__field--bg" id="email">
                     </div>
                     <div class="form__group">
-                        <label for="message" class="form__label">Message <i class="fas fa-asterisk"></i></label>
-                        <textarea class="form__field  form__field--message form__field--bg" id="message"></textarea>
+                        <label for="message" class="form__label">{{ trans('data.message') }} <i class="fas fa-asterisk"></i></label>
+                        <textarea required name="messsage" class="form__field  form__field--message form__field--bg" id="message"></textarea>
                     </div>
                     <div class="form__group  form__group--btn">
-                        <button class="primary-btn banner__btn">send</button>
+                        <button type="submit" class="primary-btn banner__btn">{{ trans('data.send') }}</button>
                     </div>
                 </form>
             </div>
             <div class="l-col-md-5">
                 <div class="contacts">
-                    <h3 class="title-thirdary">CONTACTS</h3>
+                    <h3 class="title-thirdary">{{ trans('data.contacts') }}</h3>
                     <address class="contacts__info contacts__address">
                         <div class="contacts__line">
-                            <span>Address:</span> 2 Kievyan st. Yerevan , Armenia
+                            <span>{{ trans('data.address') }}:</span> {{ trans('data.address-text') }} 
                         </div>
                         <div class="contacts__line">
-                            <span>Phone:</span> +374 10 22 40 99
+                            <span>{{ trans('data.phone') }}:</span> +374 10 22 40 99
                         </div>
                         <div class="contacts__line">
-                            <span>Mobile:</span> +374 96 57 80 09
+                            <span>{{ trans('data.mobile') }}:</span> +374 96 57 80 09
                         </div>
                         <div class="contacts__line">
-                            <span>E-mail:</span> info@platinum.am
+                            <span>{{ trans('data.email') }}:</span> info@platinum.am
                         </div>
                     </address>
-                    <h3 class="title-thirdary">WORKING HOURS</h3>
+                    <h3 class="title-thirdary">{{ trans('data.working-hours') }}</h3>
                     <div class="contacts__info">
                         <div class="contacts__line">
-                            <span>Monday to Friday:</span> 9 A.M. to 6 P.M
+                            <span>{{ trans('data.monday-to-friday') }}:</span> 9 A.M. to 6 P.M
                         </div>
                         <div class="contacts__line">
-                            <span>Saturday:</span> 9 A.M. to 1 P.M.
+                            <span>{{ trans('data.saturday') }}:</span> 9 A.M. to 1 P.M.
                         </div>
                         <div class="contacts__line">
-                            <span>Mobile:</span> +374 96 57 80 09
+                            <span>{{ trans('data.mobile') }}:</span> +374 96 57 80 09
                         </div>
                         <div class="contacts__line">
-                            <span>No working hours on Sunday</span>
+                            <span>{{ trans('data.no-working') }}</span>
                         </div>
                     </div>
                 </div>
@@ -216,16 +213,16 @@
     
 <ul class="menu" id="myNavbar">
 	<li class="menu__item">
-			<a href="#garage" class="menu__link menu__link--active">Garage</a>
+			<a href="#garage" class="menu__link menu__link--active">{{ trans('data.menu-garage') }}</a>
 	</li>
 	<li class="menu__item">
-			<a href="#about" class="menu__link">About</a>
+			<a href="#about" class="menu__link">{{ trans('data.menu-about') }}</a>
 	</li>
 	<li class="menu__item">
-			<a href="#services" class="menu__link">Services</a>
+			<a href="#services" class="menu__link">{{ trans('data.menu-services') }}</a>
 	</li>
 	<li class="menu__item">
-			<a href="#get-in-touch" class="menu__link">Get in touch</a>
+			<a href="#get-in-touch" class="menu__link">{{ trans('data.menu-get-in-touch') }}</a>
 	</li>
 </ul>
 @endsection
@@ -293,12 +290,9 @@
                 $(this).addClass('menu__link--active')
             });
 
-            {{--  $(".languageItem").on('click', function(event) {
-                $(".languageItem").each(function(){
-                    $(this).css("text-shadow", " 0px 1px 0px white")
-                });
-                $(this).css("text-shadow", " 0px 1px 0px #df445e")
-            })  --}}
+            $(".uiSuccess").on('click', function(event) {
+                $(this).hide("slow")
+            })
         });
     </script>
 @endpush

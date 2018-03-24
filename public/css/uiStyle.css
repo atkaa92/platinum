@@ -19,3 +19,14 @@
 	text-shadow: 0px 1px 0px white;
 	border-bottom: 2px solid #df445e;
 }
+
+.uiSuccess{
+	position: fixed;
+	z-index: 10000000000000000;
+	top: 43px;
+	left: 15px;
+	border-bottom: 2px solid #df445e;	
+	text-shadow: 0px 1px 0px white;
+	font-size: 23px;
+	cursor: pointer;
+}

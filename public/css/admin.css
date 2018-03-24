@@ -78,3 +78,8 @@ img.choosed{
 .in-store label:hover {
     cursor: pointer;
 }
+
+.tasks-block ul li {
+    border-bottom: 1px solid #4f5f6f!important;
+    display: none!important;
+}

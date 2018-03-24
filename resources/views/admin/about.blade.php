@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card card-block">
-                        <div class="card card-warning">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <div class="header-block">
                                     <p class="title"> English section </p>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card card-block">
-                        <div class="card card-danger">
+                        <div class="card card-primary">
                             <div class="card-header">
                                 <div class="header-block">
                                     <p class="title"> Russian section </p>

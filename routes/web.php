@@ -12,6 +12,7 @@
 */
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::post('/sentMail', 'MainController@sentMail');
 
 
 Route::group(
@@ -25,9 +26,8 @@ Route::group(
         Route::get('/', 'MainController@index');
         Route::get('/inner', 'MainController@inner');
         Route::get('/shop', 'MainController@shop');
-    });
-
-
+    }
+);
 
 Route::group([
     'prefix' => 'admin',
@@ -37,6 +37,11 @@ Route::group([
     Route::get('/', 'DashboardController@index');
     Route::get('/about/{id}', 'DashboardController@getAbout');
     Route::post('/about/{id}', 'DashboardController@updateAbout');
+    Route::get('/config', 'DashboardController@getConfigs');
+
+    Route::post('/task/{id?}', 'TaskController@addTask');
+    Route::get('/task/{id?}', 'TaskController@deleteTask');
+    Route::post('/update/task', 'TaskController@updateTask');
 
     Route::get('/new-product', 'ProductController@addProduct');
     Route::get('/all-products', 'ProductController@allProducts');

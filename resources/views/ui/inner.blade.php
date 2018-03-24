@@ -9,7 +9,7 @@
 
 <section class="l-banner l-banner--shop banner banner--inner">
     <div class="l-container">
-        <a href="{{ url('/shop') }}" class="primary-btn primary-btn--inner">go to shop</a>
+        <a href="{{ url('/shop') }}" class="primary-btn primary-btn--inner">{{ trans('data.go-to-shop') }}</a>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="1920" viewBox="0 0 1920 241" class="shape shape--bottom shape--bg">
         <path id="bottom" class="cls-1" d="M4116,3151H2196V2910l960,240,960-240v241Z"
@@ -141,6 +141,7 @@
 </section>
 
 <section class="l-section">
+    <h3 class="title-secondary title-secondary--int">{{ trans('data.releted-offers') }}</h3>
     <div class="l-container">
         <div class="carousel">
             <button class="secondary-btn secondary-btn--prev carousel__btn carousel__btn--prev js-car-prev">prev

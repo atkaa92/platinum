@@ -17,3 +17,11 @@
         @endforeach
     </ul>
 </div>
+
+@if(session('success'))
+    <div class="uiSuccess">
+        <div class="header-block">
+            <p> {{session('success')}} </p>
+        </div>
+    </div>
+@endif

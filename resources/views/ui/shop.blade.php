@@ -14,25 +14,22 @@
               transform="translate(-2196 -2910)"/>
     </svg>
 </section>
-
 <section class="l-section l-section--color-bg">
     <div class="l-container">
-        <h2 class="title">shop</h2>
-
+        <h2 class="title">{{ trans('data.shop') }}</h2>
         <div class="filters">
             <form action="#" class="form">
                 <div class="l-row l-row--int">
                     <div class="l-col-md-4 l-col-md-int">
-                        <label class="form__label">Make</label>
+                        <label class="form__label">{{ trans('data.make') }}</label>
                         <select class="selectpicker filters__select">
                             <option>Mustard</option>
                             <option>Ketchup</option>
                             <option>Relish</option>
                         </select>
                     </div>
-
                     <div class="l-col-md-4 l-col-md-int">
-                        <label class="form__label">Model</label>
+                        <label class="form__label">{{ trans('data.model') }}</label>
                         <select class="selectpicker filters__select">
                             <option>-------</option>
                             <option>Mustard</option>
@@ -40,17 +37,16 @@
                             <option>Relish</option>
                         </select>
                     </div>
-
                     <div class="l-col-md-4 l-col-md-int">
                         <div id="js-daterange">
                             <div class="l-row">
                                 <div class="l-col">
-                                    <label class="form__label">Year from</label>
+                                    <label class="form__label">{{ trans('data.year-from') }}</label>
                                     <input type="text" class="form__field js-datepicker" id="js-date-picker-from"
                                            placeholder="-------">
                                 </div>
                                 <div class="l-col">
-                                    <label class="form__label">Year to</label>
+                                    <label class="form__label">{{ trans('data.year-to') }}</label>
                                     <input type="text" class="form__field js-datepicker" id="js-date-picker-to"
                                            placeholder="-------">
                                 </div>
@@ -58,24 +54,21 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="l-row l-row--int">
                     <div class="l-col-xl-6 l-col-lg-7 l-col-sm-12">
-                        <label class="form__label">Transmission Pack</label>
+                        <label class="form__label">{{ trans('data.transmission-pack') }}</label>
                         <ul class="filters__checkboxes">
                             <li class="filters__checkboxes-item">
                                 <input type="checkbox" class="form__checkbox" id="mechanical">
-                                <label class="form__label form__label--checkbox" for="mechanical">Mechanical</label>
+                                <label class="form__label form__label--checkbox" for="mechanical">{{ trans('data.mechanical') }}</label>
                             </li>
-
                             <li class="filters__checkboxes-item">
                                 <input type="checkbox" class="form__checkbox" id="automat">
-                                <label class="form__label form__label--checkbox" for="automat">Automat</label>
+                                <label class="form__label form__label--checkbox" for="automat">{{ trans('data.automat') }}</label>
                             </li>
-
                             <li class="filters__checkboxes-item">
                                 <input type="checkbox" class="form__checkbox" id="other">
-                                <label class="form__label form__label--checkbox" for="other">Other</label>
+                                <label class="form__label form__label--checkbox" for="other">{{ trans('data.other') }}</label>
                             </li>
                         </ul>
                     </div>
@@ -87,14 +80,12 @@
                         <div id="slider-snap" class="range"></div>
                     </div>
                 </div>
-
                 <div class="form__group form__group--center">
                     <button class="primary-btn primary-btn--search">18639</button>
                 </div>
             </form>
         </div>
     </div>
-
     <svg xmlns="http://www.w3.org/2000/svg" width="1920" viewBox="0 0 1920 241" class="shape shape--bottom">
         <path id="bottom" class="cls-1" d="M4116,3151H2196V2910l960,240,960-240v241Z"
               transform="translate(-2196 -2910)"/>
@@ -103,8 +94,7 @@
 
 <section class="l-section">
     <div class="l-container">
-        <h3 class="title-secondary title-secondary--int">URGENT OFFERS</h3>
-
+        <h3 class="title-secondary title-secondary--int">{{ trans('data.urgent-offers') }}</h3>
         <div class="carousel carousel--offers">
             <button class="secondary-btn secondary-btn--prev carousel__btn carousel__btn--prev js-car-prev">prev
             </button>
@@ -116,7 +106,6 @@
                         <div class="product__cover urgent">
                             <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
-
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
 
                         <div class="product__info">
@@ -130,14 +119,12 @@
                                 <span class="product__info-item">170000km</span>
                             </div>
                         </div>
-
                         <div class="product__desc">
                             <p>
                                 Morbi enim mauris, commodo vitae sapien eu,
                                 condimentum congue leo. . Phasellus porttitor
                             </p>
                         </div>
-
                         <span class="product__price product__price--urgent">$34000</span>
                     </a>
                 </div>
@@ -238,8 +225,7 @@
 
 <section class="l-section">
     <div class="l-container">
-        <h3 class="title-secondary title-secondary--int">Search result</h3>
-
+        <h3 class="title-secondary title-secondary--int">{{ trans('data.search-result') }}</h3>
         <div class="l-row">
             <div class="l-col-lg-4 l-col-md-6 l-col-int">
                 <div class="product">
@@ -247,9 +233,7 @@
                         <div class="product__cover">
                             <img src="{{ asset('images/1.jpg') }}" alt="">
                         </div>
-
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
                         <div class="product__info">
                             <div class="product__info-col">
                                 <span class="product__info-item">2017</span>
@@ -261,28 +245,23 @@
                                 <span class="product__info-item">170000km</span>
                             </div>
                         </div>
-
                         <div class="product__desc">
                             <p>
                                 Morbi enim mauris, commodo vitae sapien eu,
                                 condimentum congue leo. . Phasellus porttitor
                             </p>
                         </div>
-
                         <span class="product__price">$34000</span>
                     </a>
                 </div>
             </div>
-
             <div class="l-col-lg-4 l-col-md-6 l-col-int">
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
                             <img src="{{ asset('images/2.jpg') }}" alt="">
                         </div>
-
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
                         <div class="product__info">
                             <div class="product__info-col">
                                 <span class="product__info-item">2017</span>
@@ -294,28 +273,23 @@
                                 <span class="product__info-item">170000km</span>
                             </div>
                         </div>
-
                         <div class="product__desc">
                             <p>
                                 Morbi enim mauris, commodo vitae sapien eu,
                                 condimentum congue leo. . Phasellus porttitor
                             </p>
                         </div>
-
                         <span class="product__price">$34000</span>
                     </a>
                 </div>
             </div>
-
             <div class="l-col-lg-4 l-col-md-6 l-col-int">
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
                             <img src="{{ asset('images/3.jpg') }}" alt="">
                         </div>
-
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
                         <div class="product__info">
                             <div class="product__info-col">
                                 <span class="product__info-item">2017</span>
@@ -327,26 +301,22 @@
                                 <span class="product__info-item">170000km</span>
                             </div>
                         </div>
-
                         <div class="product__desc">
                             <p>
                                 Morbi enim mauris, commodo vitae sapien eu,
                                 condimentum congue leo. . Phasellus porttitor
                             </p>
                         </div>
-
                         <span class="product__price">$34000</span>
                     </a>
                 </div>
             </div>
-
             <div class="l-col-lg-4 l-col-md-6 l-col-int">
                 <div class="product">
                     <a href="#" class="product__link">
                         <div class="product__cover">
                             <img src="{{ asset('images/3.jpg') }}" alt="">
                         </div>
-
                         <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
 
                         <div class="product__info">
