@@ -37,7 +37,7 @@ return [
 	'make' => '',
 	'model' => '',
 	'year-from' => '',
-	'year-to' => 'Year to',
+	'year-to' => '',
 	'transmission-pack' => '',
 	'mechanical' => '',
 	'automat' => '',
