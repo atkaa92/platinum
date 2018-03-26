@@ -9,17 +9,17 @@ class ShopController extends Controller
 {
     public function filterProducts($make = true, $model = true, $yFrom = true, $yTo = true, $mech = true, $auto = true, $other = true, $fPrice = true, $tPrice = true)
     {
-        $filterProducts = Product::with(['model'])
-                                    ->where('', $make)
-                                    ->whereHas('model', function ($query) 
-                                        {$query->where('', $model);})
-                                    ->whereBetween('', [$yFrom, $yTo])
-                                    ->where(function($q){
-                                        $q->where('', $mech);
-                                        $q->where('', $auto);
-                                        $q->where('', $other);
+        $filterProducts = Product::with(['models'])
+                                    ->where('manufacture', $make)
+                                    ->whereHas('models', function ($query) use($model)
+                                        {$query->where('en_name', $model);})
+                                    ->whereBetween('year', [$yFrom, $yTo])
+                                    ->where(function($q) use($mech, $auto, $other){
+                                        $q->where('gearbox', $mech);
+                                        $q->where('gearbox', $auto);
+                                        $q->where('gearbox', $other);
                                       })
-                                    ->whereBetween('', [$fPrice, $tPrice])
+                                    ->whereBetween('price', [$fPrice, $tPrice])
                                     ->get();
         dd($filterProducts);
     }

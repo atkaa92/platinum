@@ -14,9 +14,9 @@ class AddMarkIdInProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table){
-            $table->string('mark_id')->after('manufacture')->usigned();
+            $table->string('model_id')->after('manufacture')->usigned();
 
-            $table->index('mark_id')
+            $table->index('model_id')
                 ->references('id')->on('models');
         });
     }

@@ -18,7 +18,8 @@
     <div class="l-container">
         <h2 class="title">{{ trans('data.shop') }}</h2>
         <div class="filters">
-            <form action="#" class="form">
+            <form action="{{ url('/filter')}}" method="post" class="form">
+                {{ csrf_field() }}
                 <div class="l-row l-row--int">
                     <div class="l-col-md-4 l-col-md-int">
                         <label class="form__label">{{ trans('data.make') }}</label>
