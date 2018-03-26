@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\About;
+use App\Models\Config;
 use App\Models\Service;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -12,9 +13,11 @@ class MainController extends Controller
 {
     public function index()
     {
+        $configs = Config::first();
         $abouts = About::get();
         $services = Service::get();
         $data = [
+            'configs' => $configs,
             'abouts' => $abouts,
             'services' => $services
         ];

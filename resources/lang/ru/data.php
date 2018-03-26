@@ -17,7 +17,6 @@ return [
 	'mobile' => '',
 	'email' => '',
 	'address' => '',
-	'address-text' => '',
 	'working-hours' => '',
 	'saturday' => '',
 	'monday-to-friday' => '',

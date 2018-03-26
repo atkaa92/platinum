@@ -26,6 +26,7 @@ Route::group([
     Route::get('/about/{id}', 'DashboardController@getAbout');
     Route::post('/about/{id}', 'DashboardController@updateAbout');
     Route::get('/config', 'DashboardController@getConfigs');
+    Route::post('/config', 'DashboardController@updateConfigs');
 
     Route::post('/task/{id?}', 'TaskController@addTask');
     Route::get('/task/{id?}', 'TaskController@deleteTask');

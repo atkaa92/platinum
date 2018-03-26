@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Config;
 
 class DashboardController extends Controller
 {
@@ -50,6 +51,17 @@ class DashboardController extends Controller
     public function getConfigs()
     {
         $currPage = 'config';
-        return view('admin.config')->with(compact('currPage'));
+        $configs = Config::first();
+        return view('admin.config')->with(compact('currPage', 'configs'));
+    }
+
+    public function updateConfigs(Request $request)
+    {
+        $configs = Config::firstOrNew([]);
+        foreach ($request->except(['_token']) as $key => $val) {
+            $configs->$key = $val;
+        }
+        $configs->save();
+        return redirect()->back()->with('success', 'Configs updated');
     }
 }

@@ -17,7 +17,6 @@ return [
 	'mobile' => 'Mobile',
 	'email' => 'E-mail',
 	'address' => 'Address',
-	'address-text' => '2 Kievyan st. Yerevan , Armenia',
 	'working-hours' => 'Working hours',
 	'saturday' => 'Saturday',
 	'monday-to-friday' => 'Monday to Friday',

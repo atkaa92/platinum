@@ -172,13 +172,13 @@
                     <h3 class="title-thirdary">{{ trans('data.contacts') }}</h3>
                     <address class="contacts__info contacts__address">
                         <div class="contacts__line">
-                            <span>{{ trans('data.address') }}:</span> {{ trans('data.address-text') }} 
+                            <span>{{ trans('data.address') }}:</span> {{ getPropByLang($configs,'address') }}
                         </div>
                         <div class="contacts__line">
-                            <span>{{ trans('data.phone') }}:</span> +374 10 22 40 99
+                            <span>{{ trans('data.phone') }}:</span> {{ $configs->phone }}
                         </div>
                         <div class="contacts__line">
-                            <span>{{ trans('data.mobile') }}:</span> +374 96 57 80 09
+                            <span>{{ trans('data.mobile') }}:</span> {{ $configs->mobile }}
                         </div>
                         <div class="contacts__line">
                             <span>{{ trans('data.email') }}:</span> info@platinum.am
@@ -187,13 +187,13 @@
                     <h3 class="title-thirdary">{{ trans('data.working-hours') }}</h3>
                     <div class="contacts__info">
                         <div class="contacts__line">
-                            <span>{{ trans('data.monday-to-friday') }}:</span> 9 A.M. to 6 P.M
+                            <span>{{ trans('data.monday-to-friday') }}:</span> {{ $configs->wday_from }} A.M. to {{ $configs->wday_to }} P.M
                         </div>
                         <div class="contacts__line">
-                            <span>{{ trans('data.saturday') }}:</span> 9 A.M. to 1 P.M.
+                            <span>{{ trans('data.saturday') }}:</span> {{ $configs->wend_from }} A.M. to {{ $configs->wend_to }} P.M.
                         </div>
                         <div class="contacts__line">
-                            <span>{{ trans('data.mobile') }}:</span> +374 96 57 80 09
+                            <span>{{ trans('data.mobile') }}:</span> {{ $configs->mobile }}
                         </div>
                         <div class="contacts__line">
                             <span>{{ trans('data.no-working') }}</span>
