@@ -334,6 +334,10 @@
                 <div class="color-secondary"></div>
             </div>
         </div>
+
+        {{--  preloader  --}}
+        <div id="preloader"></div>
+
         <script src="{{ asset('js/vendor.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/fancybox.js') }}"></script>
