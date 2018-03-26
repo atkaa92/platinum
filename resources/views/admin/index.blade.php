@@ -8,7 +8,71 @@
     @include('admin/messages')    
     <section class="section">
         <div class="row sameheight-container">
-            <div class="col col-12 col-md-12 stats-col">
+            <div class="col-md-6">
+                <div class="card tasks sameheight-item" data-exclude="xs,sm">
+                    <div class="card-header bordered">
+                        <div class="header-block">
+                            <h3 class="title"> Tasks </h3>
+                            <p class="title-description"> List of tasks</p>
+                        </div>
+                        <div class="header-block pull-right">
+                            <button class="btn btn-primary btn-sm rounded pull-right addTask"> Add new </button>
+                        </div>
+                    </div>
+                    <div class="card-block">
+                        <div class="tasks-block">
+                            <ul class="item-list">
+                                @foreach($tasks as $t)
+                                    <li class="item" style="border-bottom: 1px solid #d7dde4">
+                                        <div class="item-row taskBody">
+                                            <div class="item-col item-col-title">
+                                                <label>
+                                                    <input data-id="{{ $t->id }}" class="checkbox" type="checkbox" {{ $t->completed ? 'checked' : '' }}>
+                                                    <span class="taskBodyText">{{ $t->task }} </span>
+                                                </label>
+                                            </div>
+                                            <div class="item-col fixed item-col-actions-dropdown">
+                                                <div class="item-actions-dropdown">                                                    
+                                                    <a class="item-actions-toggle-btn">
+                                                                <span class="inactive">
+                                                                    <i class="fa fa-cog"></i>
+                                                                </span>
+                                                        <span class="active">
+                                                                    <i class="fa fa-chevron-circle-right"></i>
+                                                                </span>
+                                                    </a>
+                                                    <i class="pull-right taskDate">{{ date("d.m.Y", strtotime($t['created_at'])) }}</i>
+                                                    
+                                                    <div class="item-actions-block">
+                                                        <ul class="item-actions-list">
+                                                            <li>
+                                                                <a class="removeTask" href="javascript:void(0)"  data-id="{{ $t->id }}">
+                                                                    <i class="fa fa-trash-o "></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="editTask" data-id="{{ $t->id }}">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" class="showTask" data-id="{{ $t->id }}">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-12 col-md-6 stats-col">
                 <div class="card sameheight-item stats" data-exclude="xs">
                     <div class="card-block">
                         <div class="title-block">
@@ -88,74 +152,6 @@
                                     <div class="progress-bar" style="width: 100%;"></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section map-tasks">
-        <div class="row sameheight-container">
-            <div class="col-md-12">
-                <div class="card tasks sameheight-item" data-exclude="xs,sm">
-                    <div class="card-header bordered">
-                        <div class="header-block">
-                            <h3 class="title"> Tasks </h3>
-                            <p class="title-description"> List of tasks</p>
-                        </div>
-                        <div class="header-block pull-right">
-                            <button class="btn btn-primary btn-sm rounded pull-right addTask"> Add new </button>
-                        </div>
-                    </div>
-                    <div class="card-block">
-                        <div class="tasks-block">
-                            <ul class="item-list">
-                                @foreach($tasks as $t)
-                                    <li class="item" style="border-bottom: 1px solid #d7dde4">
-                                        <div class="item-row taskBody">
-                                            <div class="item-col item-col-title">
-                                                <label>
-                                                    <input data-id="{{ $t->id }}" class="checkbox" type="checkbox" {{ $t->completed ? 'checked' : '' }}>
-                                                    <span class="taskBodyText">{{ $t->task }} </span>
-                                                </label>
-                                            </div>
-                                            <div class="item-col fixed item-col-actions-dropdown">
-                                                <div class="item-actions-dropdown">                                                    
-                                                    <a class="item-actions-toggle-btn">
-                                                                <span class="inactive">
-                                                                    <i class="fa fa-cog"></i>
-                                                                </span>
-                                                        <span class="active">
-                                                                    <i class="fa fa-chevron-circle-right"></i>
-                                                                </span>
-                                                    </a>
-                                                    <i class="pull-right taskDate">{{ date("d.m.Y", strtotime($t['created_at'])) }}</i>
-                                                    
-                                                    <div class="item-actions-block">
-                                                        <ul class="item-actions-list">
-                                                            <li>
-                                                                <a class="removeTask" href="javascript:void(0)"  data-id="{{ $t->id }}">
-                                                                    <i class="fa fa-trash-o "></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)" class="editTask" data-id="{{ $t->id }}">
-                                                                    <i class="fa fa-pencil"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:void(0)" class="showTask" data-id="{{ $t->id }}">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
                         </div>
                     </div>
                 </div>

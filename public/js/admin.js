@@ -47,3 +47,14 @@ $(document).on('click', '.set-general', function () {
     $('input[name=main-image]').val($(this).closest('.prod-img').children('input').val())
     $(this).closest('.prod-img').children('.img-ramk').addClass('main-image')
 })
+
+$(window).on('load', function(){ 
+    $('#preloader').fadeOut('slow');
+});
+
+$(document).ajaxStart(function () {
+    $('#preloader').fadeIn();
+})
+$(document).ajaxStop(function () {
+    $( "#preloader" ).fadeOut( 100000);
+})
