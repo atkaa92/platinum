@@ -550,6 +550,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('js/nouislider.min.js')}}"></script>
     <script src="{{ asset('js/owl.carousel.js')}}"></script>
+    <script src="{{ asset('js/filter.js')}}"></script>
     <script src="{{ asset('js/script.js')}}"></script>
     
     <script>

@@ -80,7 +80,7 @@
                                 {{ trans('data.transmission-pack') }}: <span>Automat</span>
                             </li>
                             <li class="car-info__list-item">
-                                {{ trans('data.exterior-color') }}: <span>Black Matt</span>
+                                {{ trans('data.exterior-color') }}: <span style="background-color:{{ '#df445e' }}" class="colorSpan"></span>
                             </li>
                             <li class="car-info__list-item">
                                 {{ trans('data.interior-type') }}: <span>Black/Gray</span>

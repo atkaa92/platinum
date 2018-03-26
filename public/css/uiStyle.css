@@ -30,3 +30,11 @@
 	font-size: 23px;
 	cursor: pointer;
 }
+
+.colorSpan{
+	height: 12px;
+	width: 81px;
+	display: inline-block;
+	margin-left: 12px;
+	border-radius: 5px;
+}

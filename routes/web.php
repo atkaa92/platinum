@@ -14,6 +14,8 @@ Route::group(
         Route::get('/', 'MainController@index');
         Route::get('/inner', 'MainController@inner');
         Route::get('/shop', 'MainController@shop');
+        
+        Route::post('/filter/{make}/{model}/{yFrom}/{yTo}/{mech}/{auto}/{other}/{fPrice}/{tPrice}', 'ShopController@filterProducts');
     }
 );
 
