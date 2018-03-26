@@ -93,3 +93,13 @@ img.choosed{
 	background: rgba(28, 41, 69, 0.7) url('/images/preloader.gif') no-repeat center center;
 	overflow: visible;
 }
+.select2-selection.select2-selection--single{
+    border: 1px solid #ced4da!important;
+    border-radius: 0px!important;
+    height: 38px!important;
+
+}
+.select2-selection__rendered{
+    border: none!important;
+    line-height: 38px!important;
+}

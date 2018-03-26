@@ -32,6 +32,10 @@ Route::group([
     Route::get('/task/{id?}', 'TaskController@deleteTask');
     Route::post('/update/task', 'TaskController@updateTask');
 
+    Route::get('/get-models/{id}', 'ProductController@getAllModelsByBrandId');
+    Route::post('/add-new-model', 'ProductController@addNewModelByBrandId');
+
+    Route::post('/add-new-product/{id?}', 'ProductController@addOrEditProductFunc');
     Route::get('/new-product', 'ProductController@addProduct');
     Route::get('/all-products', 'ProductController@allProducts');
     Route::get('/manifactures', 'ProductController@getManufactures');

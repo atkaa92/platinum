@@ -13,15 +13,23 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-//        Schema::create('products', function (Blueprint $table) {
-//            $table->increments('id');
-//            $table->string('en_name');
-//            $table->string('ru_name');
-//            $table->string('uk_name');
-//            $table->string('desc_name');
-//            $table->string('desc_name');
-//            $table->timestamps();
-//        });
+        Schema::create('products', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('hy_desc');
+            $table->text('ru_desc');
+            $table->text('en_desc');
+            $table->string('interior')->nullable();
+            $table->string('fuel')->nullable();
+            $table->string('gearbox');
+            $table->string('body');
+            $table->integer('manufacture');
+            $table->enum('location',['armenia','usa']);
+            $table->integer('year');
+            $table->integer('price');
+            $table->integer('doors');
+            $table->integer('odometer');
+            $table->timestamps();
+        });
     }
 
     /**
