@@ -9,7 +9,7 @@ class Model extends M
     protected $guarded = [];
     public $timestamps = false;
 
-    public function category(){
+    public function manufacture(){
         return $this->hasOne('App\Models\Product', 'model_id');
     }
 }
