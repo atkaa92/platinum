@@ -56,5 +56,5 @@ $(document).ajaxStart(function () {
     $('#preloader').fadeIn();
 })
 $(document).ajaxStop(function () {
-    $( "#preloader" ).fadeOut( 100000);
+    $( "#preloader" ).fadeOut();
 })
