@@ -2,7 +2,7 @@
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::post('/sentMail', 'MainController@sentMail');
-Route::post('/filter/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'ShopController@filterProducts');
+Route::any('/filter/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'ShopController@filterProducts');
 
 Route::group(
     [

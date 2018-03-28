@@ -18,12 +18,12 @@
     <div class="l-container">
         <h2 class="title">{{ trans('data.shop') }}</h2>
         <div class="filters">
-            <form action="{{ url('/filter')}}" method="post" class="form">
                 {{ csrf_field() }}
                 <div class="l-row l-row--int">
                     <div class="l-col-md-4 l-col-md-int">
                         <label class="form__label">{{ trans('data.make') }}</label>
-                        <select class="selectpicker filters__select">
+                        <select name="make" class="selectpicker filters__select">
+                            <option value="make">-------</option>
                             <option>Mustard</option>
                             <option>Ketchup</option>
                             <option>Relish</option>
@@ -31,8 +31,8 @@
                     </div>
                     <div class="l-col-md-4 l-col-md-int">
                         <label class="form__label">{{ trans('data.model') }}</label>
-                        <select class="selectpicker filters__select">
-                            <option>-------</option>
+                        <select name="model" class="selectpicker filters__select">
+                            <option  value="model">-------</option>
                             <option>Mustard</option>
                             <option>Ketchup</option>
                             <option>Relish</option>
@@ -43,12 +43,12 @@
                             <div class="l-row">
                                 <div class="l-col">
                                     <label class="form__label">{{ trans('data.year-from') }}</label>
-                                    <input type="text" class="form__field js-datepicker" id="js-date-picker-from"
+                                    <input name="yfrom" type="text" class="form__field js-datepicker" id="js-date-picker-from"
                                            placeholder="-------">
                                 </div>
                                 <div class="l-col">
                                     <label class="form__label">{{ trans('data.year-to') }}</label>
-                                    <input type="text" class="form__field js-datepicker" id="js-date-picker-to"
+                                    <input name="yto" type="text" class="form__field js-datepicker" id="js-date-picker-to"
                                            placeholder="-------">
                                 </div>
                             </div>
@@ -60,15 +60,15 @@
                         <label class="form__label">{{ trans('data.transmission-pack') }}</label>
                         <ul class="filters__checkboxes">
                             <li class="filters__checkboxes-item">
-                                <input type="checkbox" class="form__checkbox" id="mechanical">
+                                <input name="mech" type="checkbox" class="form__checkbox" id="mechanical">
                                 <label class="form__label form__label--checkbox" for="mechanical">{{ trans('data.mechanical') }}</label>
                             </li>
                             <li class="filters__checkboxes-item">
-                                <input type="checkbox" class="form__checkbox" id="automat">
+                                <input name="auto" type="checkbox" class="form__checkbox" id="automat">
                                 <label class="form__label form__label--checkbox" for="automat">{{ trans('data.automat') }}</label>
                             </li>
                             <li class="filters__checkboxes-item">
-                                <input type="checkbox" class="form__checkbox" id="other">
+                                <input name="other" type="checkbox" class="form__checkbox" id="other">
                                 <label class="form__label form__label--checkbox" for="other">{{ trans('data.other') }}</label>
                             </li>
                         </ul>
@@ -84,7 +84,6 @@
                 <div class="form__group form__group--center">
                     <button class="primary-btn primary-btn--search">18639</button>
                 </div>
-            </form>
         </div>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" width="1920" viewBox="0 0 1920 241" class="shape shape--bottom">
@@ -225,7 +224,8 @@
 </section>
 
 <section class="l-section">
-    <div class="l-container">
+    <div class="l-container forSearchLoad">
+        <div class="forSearchLoadCover"></div>
         <h3 class="title-secondary title-secondary--int">{{ trans('data.search-result') }}</h3>
         <div class="l-row">
             <div class="l-col-lg-4 l-col-md-6 l-col-int">
@@ -560,9 +560,10 @@
                 style: 'btn-info',
                 size: 4
             });
-    
+            
             $('#js-date-picker-from, #js-date-picker-to').datepicker({
-                autoclose: true
+                autoclose: true,
+                format: 'dd-mm-yyyy',
             });
             var snapSlider = document.getElementById('slider-snap');
             noUiSlider.create(snapSlider, {
