@@ -11,18 +11,31 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-    public function addProduct()
+    public function addProduct($id = false)
     {
-        $gen_id = false;
+        $gen_id = $id;
+        $edit_data = $id ? Product::find($id) : false;
         $manufacturers = Manufacturer::get();
         $currPage = 'products';
-        return view('admin.new-product')->with(compact('manufacturers', 'currPage', 'gen_id'));
+        return view('admin.new-product')->with(compact('manufacturers', 'currPage', 'gen_id', 'edit_data'));
     }
 
     public function allProducts()
     {
+        $manufacturers = Manufacturer::get();
         $currPage = 'products';
-        return view('admin.all-product')->with(compact('currPage'));
+        $products = Product::orderBy('id','desc')->paginate(20);
+        return view('admin.all-products')->with(compact('currPage','products', 'manufacturers'));
+    }
+
+    public function filter($manufacture, $model = false)
+    {
+        $products = Product::where('manufacture',$manufacture);
+        if($model){
+            $products = $products->where('model_id', $model);
+        }
+        $products = $products->get();
+        return view('admin.includes.products-list')->with(compact('products'));
     }
 
     public function addOrEditProductFunc(Request $request, $id = null)
@@ -46,9 +59,9 @@ class ProductController extends Controller
         $model->doors = $data['doors'];
         $model->gearbox = $data['gearbox'];
         $model->body = $data['body'];
-        $model->body = $data['location'];
+        $model->location = $data['location'];
         $model->manufacture = $data['manufacture'];
-        $model->mark_id = $data['model'];
+        $model->model_id = $data['model'];
 
         if($model->save()){
             return redirect()->back()->with('success', 'Product successfully created!');

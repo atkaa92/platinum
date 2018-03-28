@@ -46,9 +46,10 @@ $(document).on('click', '.set-general', function () {
     $('.img-ramk').removeClass('main-image')
     $('input[name=main-image]').val($(this).closest('.prod-img').children('input').val())
     $(this).closest('.prod-img').children('.img-ramk').addClass('main-image')
+    image_sel = true;
 })
 
-$(window).on('load', function(){ 
+$(window).on('load', function(){
     $('#preloader').fadeOut('slow');
 });
 

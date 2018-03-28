@@ -10,6 +10,6 @@ class Model extends M
     public $timestamps = false;
 
     public function manufacture(){
-        return $this->hasOne('App\Models\Product', 'model_id');
+        return $this->belongsTo(Manufacturer::class, 'mark_id', 'id');
     }
 }

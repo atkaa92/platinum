@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     public function models(){
-        return $this->belongsTo('App\Models\Model', 'model_id');
+        return $this->belongsTo('App\Models\Model', 'model_id', 'id');
+    }
+
+    public function manufacturer()
+    {
+        return $this->belongsTo(Manufacturer::class, 'manufacture', 'id');
     }
 }

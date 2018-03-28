@@ -41,6 +41,8 @@ Route::group([
     Route::post('/add-new-product/{id?}', 'ProductController@addOrEditProductFunc');
     Route::get('/new-product', 'ProductController@addProduct');
     Route::get('/all-products', 'ProductController@allProducts');
+    Route::get('/new-product/{id?}', 'ProductController@addProduct');
+    Route::get('/search/{man}/{mod?}', 'ProductController@filter');
     Route::get('/manifactures', 'ProductController@getManufactures');
     Route::post('/save-manufactures', 'ProductController@saveManufactures');
     Route::get('/remove-manufacture/{manufacture_id}', 'ProductController@removeManufacturerById');

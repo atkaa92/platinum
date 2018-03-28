@@ -2,22 +2,37 @@
 
 @section('admin')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+
     <div class="title-block">
         <h3 class="title"> Add new product </h3>
         <p class="title-description"> Add new product </p>
     </div>
     @include('admin.messages')
     <section class="section">
-        <form action="{{ !$gen_id ? '/admin/add-new-product' : '/admin/add-new-product/'.$gen_id }}" method="post">
+        <form class="add-prod-form" action="{{ !$gen_id ? '/admin/add-new-product' : '/admin/add-new-product/'.$gen_id }}" method="post">
             {{ csrf_field() }}
             <div class="row">
                 <div class="col-md-12">
                     {!! fileManager('btn-block mb-5') !!}
                     <input type="hidden" id="filemanager-url">
-                    <input type="hidden" value="" name="main-image">
+                    <input type="hidden" value="{{ $gen_id ? $edit_data->main_image : ''}}" name="main-image">
                 </div>
             </div>
             <div id="filemanager-album" class="row mb-5">
+                @if($edit_data)
+                    @foreach(unserialize($edit_data->images) as $image)
+                    <div class="col-md-2 mb-2 prod-img">
+                        <div class="img-ramk {{ $image == $edit_data->main_image ? 'main-image' : '' }}">
+                            <a class="zoom" href="{{ $image }}"><img class="filemanager-image choosed" src="{{ $image }}"></a>
+                        </div>
+                        <input type="hidden" name="product-image[]" value="{{ $image }}">
+                        <div class="mt-1">
+                            <button class="btn btn-danger remove-image" type="button" title="Remove image from this product images list"><i class="fa fa-trash"></i></button>
+                            <button class="btn btn-success set-general" style="{{ $image != $edit_data->main_image ?: 'display:none' }}" type="button" title="Set as main image for this product"><i class="fa fa-check-square"></i></button>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
                 <div class="col-md-2 mb-2">
                     <img class="filemanager-image" src="{{ asset('images/no-image-car.png') }}">
                 </div>
@@ -32,8 +47,8 @@
                         </div>
                     </div>
                     <div class="form-group mt-5">
-                        <textarea class="form-control boxed" rows="5" name="hy_desc" id="hy_desc"
-                                  placeholder="Armenian description"></textarea>
+                        <textarea required class="form-control boxed" rows="5" name="hy_desc" id="hy_desc"
+                                  placeholder="Armenian description">{{ $gen_id ? $edit_data->hy_desc : '' }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -45,8 +60,8 @@
                         </div>
                     </div>
                     <div class="form-group mt-5">
-                        <textarea class="form-control boxed" id="en-name" rows="5" name="en_desc"
-                                  placeholder="English description"></textarea>
+                        <textarea required class="form-control boxed" id="en-name" rows="5" name="en_desc"
+                                  placeholder="English description">{{ $gen_id ? $edit_data->en_desc : ''}}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -58,8 +73,8 @@
                         </div>
                     </div>
                     <div class="form-group mt-5">
-                        <textarea class="form-control boxed" id="ru-desc" rows="5" name="ru_desc"
-                                  placeholder="Russian description"></textarea>
+                        <textarea required class="form-control boxed" id="ru-desc" rows="5" name="ru_desc"
+                                  placeholder="Russian description">{{ $gen_id ? $edit_data->ru_desc : ''}}</textarea>
                     </div>
                 </div>
             </div>
@@ -71,7 +86,7 @@
                                 <label>In store</label>
                                 <div class="in-store">
                                     <label>
-                                        <input type="checkbox" checked name="in-store">
+                                        <input type="checkbox" {{ $gen_id && $edit_data->in_store ? 'checked' : ''}} name="in-store">
                                         <i></i>
                                     </label>
                                 </div>
@@ -80,39 +95,39 @@
                                 <label>Urgent</label>
                                 <div class="in-store">
                                     <label>
-                                        <input type="checkbox" name="urgent">
+                                        <input type="checkbox" {{ $gen_id && $edit_data->urgent ? 'checked' : ''}} name="urgent">
                                         <i></i>
                                     </label>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <label>Color</label>
-                                <input name="color" type="color" class="form-control boxed input-block">
-                                <span class="color-picker">
+                                <input required name="color" value="{{ $gen_id ? $edit_data->color : false }}" type="color" class="form-control boxed input-block">
+                                <span class="color-picker" style="background: {{!$gen_id ?: $edit_data->color}}">
                                 </span>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label>Year</label>
-                                <input name="year" placeholder="Year - only number" type="number"
+                                <input required name="year" placeholder="Year - only number" value="{{ $gen_id ? $edit_data->year : ''}}" type="number"
                                         class="form-control boxed input-block">
                             </div>
                             <div class=" col-md-6">
                                 <label>Price</label>
-                                <input name="price" placeholder="Price - only number" type="number"
+                                <input required name="price" placeholder="Price - only number" value="{{ $gen_id ? $edit_data->price : ''}}" type="number"
                                         class="form-control boxed input-block">
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label>Odometer</label>
-                                <input name="odometer" placeholder="Odometer - only number" type="number"
+                                <input required name="odometer" value="{{ $gen_id ? $edit_data->odometer : '' }}" placeholder="Odometer - only number" type="number"
                                     class="form-control boxed input-block">
                             </div>
                             <div class="col-md-6">
                                 <label>Doors</label>
-                                <input name="doors" placeholder="Door - only number" type="number"
+                                <input value="{{ $gen_id ? $edit_data->doors : '' }}" required name="doors" placeholder="Door - only number" type="number"
                                     class="form-control boxed input-block">
                             </div>
                         </div>
@@ -123,46 +138,34 @@
                             <div class="col-md-6">
                                 <label>Interior Type</label>
                                 <select name="interior" class="form-control boxed">
-                                    <option value="">-----------</option>
-                                    <option value="leather">Leather</option>
-                                    <option value="cloth">Cloth</option>
+                                    <option value="" {{ $gen_id && !$edit_data->interior ? 'selected' : '' }}>-----------</option>
+                                    <option value="leather" {{ $gen_id && $edit_data->interior == 'leather' ? 'selected' : '' }}>Leather</option>
+                                    <option value="cloth" {{ $gen_id && $edit_data->interior == 'cloth' ? 'selected' : '' }}>Cloth</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label>Gearbox</label>
-                                <select name="gearbox" class="form-control boxed">
-                                    <option value="semi-automatic">Semi-automatic</option>
-                                    <option value="manual">Manual</option>
-                                    <option value="automatic">Automatic</option>
+                                <select required name="gearbox" class="form-control boxed">
+                                    <option value="semi-automatic" {{ $gen_id && $edit_data->gearbox == 'semi-automatic' ? 'selected' : '' }}>Semi-automatic</option>
+                                    <option value="manual" {{ $gen_id && $edit_data->gearbox == 'manual' ? 'selected' : '' }}>Manual</option>
+                                    <option value="automatic" {{ $gen_id && $edit_data->gearbox == 'automatic' ? 'selected' : '' }}>Automatic</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label>Body</label>
-                                <select name="body" class="form-control boxed">
-                                    <option value="bike">Bike</option>
-                                    <option value="scooter">Scooter</option>
-                                    <option value="electric Car">Electric Car</option>
-                                    <option value="crossover">Crossover</option>
-                                    <option value="luxury car">Luxury Car</option>
-                                    <option value="hybrid car">Hybrid Car</option>
-                                    <option value="convertible">Convertible</option>
-                                    <option value="sports car">Sports Car</option>
-                                    <option value="wagon">Wagon</option>
-                                    <option value="van">Van</option>
-                                    <option value="suv">SUV</option>
-                                    <option value="truck">Truck</option>
-                                    <option value="sedan">Sedan</option>
-                                    <option value="coupe">Coupe</option>
-                                    <option value="other">Other</option>
+                                <select required name="body" class="form-control boxed">
+                                    @foreach(config('extra.body') as $bval => $name)
+                                        <option value="{{ $bval }}" {{ $gen_id && $edit_data->body == $bval ? 'selected' : '' }}>{{ $name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label>Location</label>
-                                <select name="location" class="form-control boxed">
-                                    <option value="armenia">Armenia</option>
-                                    <option value="usa">USA</option>
+                                <select required name="location" class="form-control boxed">
+                                    <option value="armenia" {{ $gen_id && $edit_data->location == 'armenia' ? 'selected' : ''}}>Armenia</option>
+                                    <option value="usa" {{ $gen_id && $edit_data->location == 'usa' ? 'selected' : '' }}>USA</option>
                                 </select>
                             </div>
                         </div>
@@ -170,28 +173,33 @@
                             <div class="col-md-6">
                                 <label>Fuel Used</label>
                                 <select name="fuel" class="form-control boxed">
-                                    <option value="">-----------</option>
-                                    <option value="electric">Electric</option>
-                                    <option value="ethanol">Ethanol</option>
-                                    <option value="hybrid">Hybrid</option>
-                                    <option value="diesel">Diesel</option>
-                                    <option value="gasoline">Gasoline</option>
+                                    <option value="" {{ !$gen_id ?: $edit_data->fuel ?: 'selected' }}>-----------</option>
+                                    @foreach(config('extra.fuel') as $val => $name)
+                                        <option value="{{ $val }}" {{ !$gen_id ?: $edit_data->fuel != $val ?: 'selected' }}>{{ $name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Manufacturer</label>
-                                    <select name="manufacture" class="form-control boxed">
+                                    <select required name="manufacture" class="form-control boxed">
+                                        <option value="">--------------</option>
                                         @foreach($manufacturers as $manufacturer)
-                                            <option value="{{ $manufacturer['id'] }}">{{ $manufacturer['en_name'] }}</option>
+                                            <option value="{{ $manufacturer['id'] }}" {{ !$gen_id ?: $edit_data->manufacture != $manufacturer['id'] ?: 'selected' }}>{{ $manufacturer['en_name'] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group model-form" style="display: none">
+                                <div class="form-group model-form" style="{{ $gen_id ?: 'display: none'}}">
                                     <label>Model</label>
                                     <div class="row">
                                         <div class="col-10">
-                                            <select name="model" class="form-control boxed"></select>
+                                            <select required name="model" class="form-control boxed">
+                                                @if($gen_id)
+                                                    @foreach($edit_data->manufacturer()->first()->models as $model)
+                                                        <option value="{{ $model->id }}" {{ $edit_data->model_id != $model->id ?: 'selected' }}>{{ $model->en_name }}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
                                         </div>
                                         <div class="col-2">
                                             <button data-target="#model-modal" data-toggle="modal" class="btn btn-primary" type="button" style=" height: 100%;" title="Add new model">
@@ -297,6 +305,12 @@
             })
         })
 
-        $('select[name=manufacture]').select2()
+        $('.add-prod-form').submit(function (e) {
+            if(!$('.filemanager-image.choosed').length){
+                e.preventDefault()
+                alert('Please choose images. Images are required!')
+            }
+        })
+
     </script>
 @endpush
