@@ -63,7 +63,7 @@
 @push('scripts')
     <script>
 
-        $(window).on('shown.bs.modal', function(event) {
+        $(window).on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var manufacture_remove_id = button.data('id');
 

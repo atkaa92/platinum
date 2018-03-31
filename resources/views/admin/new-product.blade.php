@@ -214,7 +214,7 @@
                 </div>
             </div><br>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-success btn-lg btn-block">Add product</button>
+                <button type="submit" class="btn btn-success btn-lg btn-block">{{ $gen_id ? 'Update product' :'Add product'  }}</button>
             </div>
         </form>
     </section>
@@ -265,7 +265,7 @@
             $('.color-picker').css({backgroundColor: $(this).val()})
         })
 
-        $(window).on('shown.bs.modal', function(event) {
+        $(window).on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
             var manufacture_name = $('select[name=manufacture] option:selected').text()
             var manufacture_id = $('select[name=manufacture]').val()

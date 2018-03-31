@@ -11,7 +11,7 @@
                             <i class="fa fa-edit"></i> </a>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-danger btn-block "><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-danger btn-block remove-product" data-id="{{ $product->id }}" data-toggle="modal" data-target="#confirm-remove"><i class="fa fa-trash"></i></button>
                     </div>
                 </div>
             </div>

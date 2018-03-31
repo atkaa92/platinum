@@ -48,7 +48,7 @@ class ProductController extends Controller
         $model->hy_desc = $data['hy_desc'];
         $model->interior = isset($data['interior']) ? $data['interior'] : '';
         $model->fuel = isset($data['fuel']) ? $data['fuel'] : '';
-        $model->main_image = isset($data['main_image']) ? $data['main_image'] : $data['product-image'][0];
+        $model->main_image = isset($data['main-image']) ? $data['main-image'] : $data['product-image'][0];
         $model->images = serialize($data['product-image']);
         $model->in_store = isset($data['in-store']) ? 1 : 0;
         $model->urgent = isset($data['urgent']) ? 1 : 0;
@@ -67,6 +67,20 @@ class ProductController extends Controller
             return redirect()->back()->with('success', 'Product successfully created!');
         }
         return redirect()->back()->with('error', 'Server Error!');
+    }
+
+    public function removeProduct($id)
+    {
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->back()->with('error', 'Something is wrong!');
+        }
+
+        if($product->delete()){
+            return redirect()->back()->with('success', 'Product successfully removed');
+        }else{
+            return redirect()->back()->with('error', 'Something is wrong!');
+        }
     }
 
     public function getManufactures()
