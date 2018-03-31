@@ -14,6 +14,7 @@
             <div class="col-sm-5">
                 <label>Manufacturer</label>
                 <select name="manufacture" class="form-control boxed">
+                    <option value="0">------------</option>
                     @foreach($manufacturers as $manufacturer)
                         <option value="{{ $manufacturer['id'] }}">{{ $manufacturer['en_name'] }}</option>
                     @endforeach
@@ -28,9 +29,9 @@
             <div class="col-sm-2">
                 <label>Sold</label>
                 <select name="sold" class="form-control boxed">
-                    <option value="[0,1]">All</option>
-                    <option value="[0]">Not sold</option>
-                    <option value="[1]">Sold</option>
+                    <option value="0,1">All</option>
+                    <option value="0">Not sold</option>
+                    <option value="1">Sold</option>
                 </select>
             </div>
         </div>
@@ -42,9 +43,6 @@
         <hr>
         <div class="row filter-data">
             @include('admin.includes.products-list')
-        </div>
-        <div class="for-pagination">
-            {!! $products->links('admin.includes.pagination') !!}
         </div>
     </section>
 
@@ -84,6 +82,24 @@
         $('select[name=manufacture]').select2()
 
         $('.search').click(function () {
+            getCars(0)
+        })
+
+        $(window).on('hashchange', function() {
+            if (window.location.hash) {
+                var page = window.location.hash.replace('#', '');
+                if (page == Number.NaN || page <= 0) {
+                    return false;
+                }
+            }
+        });
+
+        $(document).on('click', '.paginate a', function (e) {
+            e.preventDefault();
+            getCars($(this).attr('href').split('page=')[1]);
+        });
+
+        function getCars(page) {
             var manufacture = $('select[name=manufacture]').val()
             var sold = $('select[name=sold]').val()
             var url = '/admin/search/'+manufacture + '/' + sold
@@ -91,9 +107,10 @@
             if(model){
                 url = url + '/' + model;
             }
-            $('.filter-data').load(url)
-        })
-
+            $('.filter-data').load(url + '?page=' + page, function () {
+                location.hash = page;
+            })
+        }
 
         $('#confirm-remove').on('show.bs.modal', function (event) {
 

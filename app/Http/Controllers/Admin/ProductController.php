@@ -25,20 +25,25 @@ class ProductController extends Controller
     {
         $manufacturers = Manufacturer::get();
         $currPage = 'products';
-        $products = Product::orderBy('id','desc')->paginate(1);
+        $products = Product::orderBy('id','desc')->paginate(2);
         return view('admin.all-products')->with(compact('currPage','products', 'manufacturers'));
     }
 
     public function filter($manufacture, $sold, $model = false)
     {
-        $sold = (array) $sold;
-        $products = Product::where('manufacture',$manufacture)
-        ->whereIn('buyed', $sold[0]);
+        $sold = explode(',',$sold);
+        $products = Product::whereIn('buyed', $sold);
+
+        if($manufacture){
+            $products = $products->where('manufacture',$manufacture);
+        }
         if($model){
             $products = $products->where('model_id', $model);
         }
-        $products = $products->paginate(1);
-        return view('admin.includes.products-list')->with(compact('products'));
+        $products = $products->paginate(2);
+
+        return view('admin.includes.products-list', array('products' => $products));
+
     }
 
     public function addOrEditProductFunc(Request $request, $id = null)

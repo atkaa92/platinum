@@ -18,3 +18,6 @@
         </div>
     </div>
 @endforeach
+<div class="col-12">
+    {!! $products->links('admin.includes.pagination') !!}
+</div>
