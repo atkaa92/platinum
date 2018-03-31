@@ -27,7 +27,13 @@
 						</a>
 				</div>
 		</div>
-	@endforeach
-	@else
-	<p style="margin:auto">Nothing found</p>
-	@endif
+		@endforeach
+		@else
+		<p style="margin:auto">Nothing found</p>
+		@endif
+		<script>
+				var blabla = {{ $filterProductsCount }}
+				console.log(blabla)
+				$(".primary-btn--search").text(blabla)
+		</script>
+		

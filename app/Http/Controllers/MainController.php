@@ -28,11 +28,9 @@ class MainController extends Controller
 
     public function shop()
     {
-        $products = Product::with(['models', 'manufacturer'])->get();
         $urgents = Product::with(['models', 'manufacturer'])->where('urgent', 1)->get();
         $manufacturers = Manufacturer::get();
         $data= [
-            'products' => $products,
             'urgents' => $urgents,
             'manufacturers' => $manufacturers
         ];
@@ -65,12 +63,14 @@ class MainController extends Controller
             $gearbox = [ $mech, $auto, $other ];
             $products = $products->whereIn('gearbox', $gearbox);
         }
+        $filterProductsCount = $products->count();
         $products = $products->get();
         $products = Product::with(['models', 'manufacturer'])->get();
         $urgents = Product::with(['models', 'manufacturer'])->where('urgent', 1)->get();
         $manufacturers = Manufacturer::get();
         $data= [
             'products' => $products,
+            'filterProductsCount' => $filterProductsCount,
             'urgents' => $urgents,
             'manufacturers' => $manufacturers
         ];

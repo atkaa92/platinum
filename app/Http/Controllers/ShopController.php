@@ -33,8 +33,9 @@ class ShopController extends Controller
             $gearbox = [ $mech, $auto, $other ];
             $filterProducts = $filterProducts->whereIn('gearbox', $gearbox);
         }
+        $filterProductsCount = $filterProducts->count();
         $filterProducts = $filterProducts->get();
-        return view('ui.includes.filterProducts')->with(compact('filterProducts'));
+        return view('ui.includes.filterProducts')->with(compact('filterProducts', 'filterProductsCount'));
         // echo json_encode($filterProducts->toSql());
     }
 
