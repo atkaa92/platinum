@@ -2,7 +2,8 @@
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::post('/sentMail', 'MainController@sentMail');
-Route::any('/filter/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'ShopController@filterProducts');
+Route::get('/filter/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'ShopController@filterProducts');
+Route::post('/getMakeModels', 'ShopController@getMakeModels');
 
 Route::group(
     [
@@ -14,9 +15,8 @@ Route::group(
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
         Route::get('/', 'MainController@index');
         Route::get('/inner', 'MainController@inner');
-        Route::get('/shop', 'MainController@shop');
-        
-        
+        Route::get('/shop/{filter?}/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'MainController@shop');
+        // Route::get('/filter/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'MainController@filterProducts');
     }
 );
 

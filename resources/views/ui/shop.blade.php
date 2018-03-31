@@ -24,18 +24,15 @@
                         <label class="form__label">{{ trans('data.make') }}</label>
                         <select name="make" class="selectpicker filters__select">
                             <option value="make">-------</option>
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
+                            @foreach($manufacturers as $m)
+                                <option value="{{ $m->id }}">{{ getPropByLang($m,'name') }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="l-col-md-4 l-col-md-int">
                         <label class="form__label">{{ trans('data.model') }}</label>
                         <select name="model" class="selectpicker filters__select">
                             <option  value="model">-------</option>
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
                         </select>
                     </div>
                     <div class="l-col-md-4 l-col-md-int">
@@ -91,7 +88,6 @@
               transform="translate(-2196 -2910)"/>
     </svg>
 </section>
-
 <section class="l-section">
     <div class="l-container">
         <h3 class="title-secondary title-secondary--int">{{ trans('data.urgent-offers') }}</h3>
@@ -101,415 +97,72 @@
             <button class="secondary-btn secondary-btn--next carousel__btn carousel__btn--next js-car-next">next
             </button>
             <div class="owl-carousel">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover urgent">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
+                @foreach($urgents as $u)
+                    <div class="product">
+                        <a href="{{ url('/inner/'.$u->id) }}" class="product__link">
+                            <div class="product__cover urgent">
+                                <img src="{{ $u->main_image }}" alt="">
                             </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
+                            <h4 class="product__name">{{ getPropByLang($u->manufacturer,'name') }} {{ getPropByLang($u->models,'name') }}</h4>
+                            <div class="product__info">
+                                <div class="product__info-col">
+                                    <span class="product__info-item">{{ $u->year }}</span>
+                                </div>
+                                <div class="product__info-col">
+                                    <span class="product__info-item">{{ $u->gearbox }}</span>
+                                </div>
+                                <div class="product__info-col">
+                                    <span class="product__info-item">{{ $u->odometer }}km</span>
+                                </div>
                             </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
+                            <div class="product__desc">
+                                <p>
+                                    {{ substr(getPropByLang($u,'desc'), 0, 85)  . '...' }}
+                                </p>
                             </div>
-                        </div>
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-                        <span class="product__price product__price--urgent">$34000</span>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover urgent">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price product__price--urgent">$34000</span>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover urgent">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price product__price--urgent">$34000</span>
-                    </a>
-                </div>
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover urgent">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price product__price--urgent">$34000</span>
-                    </a>
-                </div>
+                            <span class="product__price product__price--urgent">${{ $u->price }}</span>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
 </section>
-
 <section class="l-section">
     <div class="l-container forSearchLoad">
         <div class="forSearchLoadCover"></div>
         <h3 class="title-secondary title-secondary--int">{{ trans('data.search-result') }}</h3>
         <div class="l-row">
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
+            {{--  @foreach($products as $p)
+                <div class="l-col-lg-4 l-col-md-6 l-col-int">
+                    <div class="product">
+                        <a href="{{ url('/inner/'.$p->id) }}" class="product__link">
+                            <div class="product__cover {{ $p->urgent ? 'urgent' : ''}}">
+                                <img src="{{ $p->main_image }}" alt="">
                             </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
+                            <h4 class="product__name">{{ getPropByLang($p->manufacturer,'name') }} {{ getPropByLang($p->models,'name') }}</h4>
+                            <div class="product__info">
+                                <div class="product__info-col">
+                                    <span class="product__info-item">{{ $p->year }}</span>
+                                </div>
+                                <div class="product__info-col">
+                                    <span class="product__info-item">{{ $p->gearbox }}</span>
+                                </div>
+                                <div class="product__info-col">
+                                    <span class="product__info-item">{{ $p->odometer }}km</span>
+                                </div>
                             </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
+                            <div class="product__desc">
+                                <p>
+                                    {{ substr(getPropByLang($p,'desc'), 0, 85)  . '...' }}
+                                </p>
                             </div>
-                        </div>
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-                        <span class="product__price">$34000</span>
-                    </a>
+                            <span class="product__price {{ $p->urgent ? 'product__price--urgent' : ''}}">${{ $p->price }}</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/2.jpg') }}" alt="">
-                        </div>
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/3.jpg') }}" alt="">
-                        </div>
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/3.jpg') }}" alt="">
-                        </div>
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/3.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/1.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/2.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                <div class="product">
-                    <a href="#" class="product__link">
-                        <div class="product__cover">
-                            <img src="{{ asset('images/3.jpg') }}" alt="">
-                        </div>
-
-                        <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                        <div class="product__info">
-                            <div class="product__info-col">
-                                <span class="product__info-item">2017</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">Automat</span>
-                            </div>
-                            <div class="product__info-col">
-                                <span class="product__info-item">170000km</span>
-                            </div>
-                        </div>
-
-                        <div class="product__desc">
-                            <p>
-                                Morbi enim mauris, commodo vitae sapien eu,
-                                condimentum congue leo. . Phasellus porttitor
-                            </p>
-                        </div>
-
-                        <span class="product__price">$34000</span>
-                    </a>
-                </div>
-            </div>
+            @endforeach  --}}
         </div>
-
         <ul class="pagination">
             <li class="pagination__item">
                 <a href="#" class="pagination__link pagination__link--prev secondary-btn secondary-btn--prev"
@@ -558,7 +211,7 @@
         $(document).ready(function () {
             $('.selectpicker').selectpicker({
                 style: 'btn-info',
-                size: 4
+                size: 1000
             });
             
             $('#js-date-picker-from, #js-date-picker-to').datepicker({
@@ -581,6 +234,12 @@
             ];
             snapSlider.noUiSlider.on('update', function (values, handle) {
                 snapValues[handle].innerHTML = values[handle];
+                if(handle){
+                    filterQuery.tprice = values[handle].slice(0, values[handle].indexOf('.'))
+                    
+                }else{
+                    filterQuery.fprice = values[handle].slice(0, values[handle].indexOf('.'))
+                }
             });
         });
     </script>

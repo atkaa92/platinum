@@ -3,28 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Model;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
     public function filterProducts($make = false, $model = false, $yFrom = false, $yTo = false, $mech = false, $auto = false, $other = false, $fPrice = false, $tPrice = false)
     {
-        $filterProducts = Product::with(['models']);
+        $filterProducts = Product::with(['models', 'manufacturer']);
         if($make != 'make'){
             $filterProducts = $filterProducts->where('manufacture', $make);
         }
         if($model != 'model'){
-            $filterProducts = $filterProducts->whereHas('models', function ($query) use($model){
-                                $query->where('en_name', $model);
-                                $query->orWhere('hy_name', $model);
-                                $query->orWhere('ru_name', $model);
-                            });
+            $filterProducts = $filterProducts->where('model_id', $make);
         }
         if($yFrom != 'yfrom'){
-            $filterProducts = $filterProducts->where('year', '>=' , $yFrom);
+            $filterProducts = $filterProducts->where('year', '>=' , substr($yFrom,6));
         }
         if($yTo != 'yto'){
-            $filterProducts = $filterProducts->where('year', '>=' , $yTo);
+            $filterProducts = $filterProducts->where('year', '<=' , substr($yTo,6));
         }
         if($fPrice != 'fprice'){
             $filterProducts = $filterProducts->where('price', '>=' , $fPrice);
@@ -38,7 +35,12 @@ class ShopController extends Controller
         }
         $filterProducts = $filterProducts->get();
         return view('ui.includes.filterProducts')->with(compact('filterProducts'));
+        // echo json_encode($filterProducts->toSql());
+    }
 
-        echo json_encode($filterProducts);
+    public function getMakeModels(Request $request)
+    {
+        $models = Model::select($request->lang.'_name as name', 'id')->where('mark_id', request('make'))->get();
+        echo json_encode($models);
     }
 }

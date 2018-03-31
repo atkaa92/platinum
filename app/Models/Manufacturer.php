@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as M;
 
-class Manufacturer extends Model
+class Manufacturer extends M
 {
     public $timestamps = false;
 
