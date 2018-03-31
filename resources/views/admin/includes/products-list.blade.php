@@ -5,14 +5,14 @@
             <div class="card-body text-center">
                 <h6 class="card-title">{{ $product->models->manufacture()->first()->en_name }}</h6>
                 <p class="card-text">{{ $product->year.' '.$product->models()->first()->en_name }}</p>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <a href="{{ url('admin/new-product/'.$product->id) }}" class="btn btn-primary btn-block">
-                            <i class="fa fa-edit"></i> </a>
-                    </div>
-                    <div class="col-sm-6">
-                        <button class="btn btn-danger btn-block remove-product" data-id="{{ $product->id }}" data-toggle="modal" data-target="#confirm-remove"><i class="fa fa-trash"></i></button>
-                    </div>
+                <div class="btn-group">
+                    <a href="{{ url('admin/new-product/'.$product->id) }}" title="Edit product" class="btn btn-primary with-tooltip">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    @if(!$product->buyed)
+                        <button class="btn btn-warning buyed with-tooltip" data-icon="sold" data-price="{{ $product->price }}" title="Considered as sold" data-id="{{ $product->id }}" data-toggle="modal" data-target="#confirm-remove"><i class="fa fa-money"></i></button>
+                    @endif
+                    <button class="btn btn-danger remove-product with-tooltip" data-icon="remove" title="Remove product" data-id="{{ $product->id }}" data-toggle="modal" data-target="#confirm-remove"><i class="fa fa-trash"></i></button>
                 </div>
             </div>
         </div>

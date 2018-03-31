@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Finace;
 use App\Models\Manufacturer;
 use App\Models\Model;
 use App\Models\Product;
@@ -24,17 +25,19 @@ class ProductController extends Controller
     {
         $manufacturers = Manufacturer::get();
         $currPage = 'products';
-        $products = Product::orderBy('id','desc')->paginate(20);
+        $products = Product::orderBy('id','desc')->paginate(1);
         return view('admin.all-products')->with(compact('currPage','products', 'manufacturers'));
     }
 
-    public function filter($manufacture, $model = false)
+    public function filter($manufacture, $sold, $model = false)
     {
-        $products = Product::where('manufacture',$manufacture);
+        $sold = (array) $sold;
+        $products = Product::where('manufacture',$manufacture)
+        ->whereIn('buyed', $sold[0]);
         if($model){
             $products = $products->where('model_id', $model);
         }
-        $products = $products->get();
+        $products = $products->paginate(1);
         return view('admin.includes.products-list')->with(compact('products'));
     }
 
@@ -67,6 +70,23 @@ class ProductController extends Controller
             return redirect()->back()->with('success', 'Product successfully created!');
         }
         return redirect()->back()->with('error', 'Server Error!');
+    }
+
+    public function buyProduct($id, $price){
+        $product = Product::find($id);
+        if($product->buyed){
+            return redirect()->back()->with('error', 'This product already sold!');
+        }
+        $product->buyed = 1;
+
+        $model = new Finace();
+        $model->product_id = $id;
+        $model->price = $price;
+
+        if($model->save() && $product->save()){
+            return redirect()->back()->with('success', 'Successfully updated!');
+        }
+        return redirect()->back()->with('error', 'Something is wrong!');
     }
 
     public function removeProduct($id)

@@ -312,5 +312,6 @@
             }
         })
 
+        $('select[name=manufacture]').select2()
     </script>
 @endpush

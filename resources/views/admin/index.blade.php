@@ -109,7 +109,7 @@
                                     <i class="fa fa-line-chart"></i>
                                 </div>
                                 <div class="stat">
-                                    <div class="value"> $ 0</div>
+                                    <div class="value"> $ {{ $income }}</div>
                                     <div class="name"> Total income</div>
                                 </div>
                                 <div class="progress stat-progress">
