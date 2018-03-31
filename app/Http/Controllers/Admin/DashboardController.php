@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Finace;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Task;
@@ -19,13 +20,17 @@ class DashboardController extends Controller
         $taskA = Task::where('completed', 0)->count();
         $taskC = Task::where('completed', 1)->count();
         $income = Finace::sum('price');
+        $sold = Product::where('buyed', 1)->count();
+        $active = Product::where('buyed', 0)->count();
         $data = [
             'currPage' => 'dashboard',
             'tasks' => $tasks,
             'taskA' => $taskA,
             'taskC' => $taskC,
             'users' => $users,
-            'income' => $income
+            'income' => $income,
+            'sold' => $sold,
+            'active' => $active
         ];
         
         return view('admin.index')->with($data);

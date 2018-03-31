@@ -25,7 +25,7 @@ class ProductController extends Controller
     {
         $manufacturers = Manufacturer::get();
         $currPage = 'products';
-        $products = Product::orderBy('id','desc')->paginate(2);
+        $products = Product::orderBy('id','desc')->paginate(20);
         return view('admin.all-products')->with(compact('currPage','products', 'manufacturers'));
     }
 
@@ -40,7 +40,7 @@ class ProductController extends Controller
         if($model){
             $products = $products->where('model_id', $model);
         }
-        $products = $products->paginate(2);
+        $products = $products->paginate(20);
 
         return view('admin.includes.products-list', array('products' => $products));
 

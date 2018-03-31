@@ -85,7 +85,7 @@
                                     <i class="fa fa-rocket"></i>
                                 </div>
                                 <div class="stat">
-                                    <div class="value"> 0</div>
+                                    <div class="value"> {{ $active }}</div>
                                     <div class="name"> Active products</div>
                                 </div>
                                 <div class="progress stat-progress">
@@ -97,7 +97,7 @@
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
                                 <div class="stat">
-                                    <div class="value"> 0</div>
+                                    <div class="value"> {{ $sold }}</div>
                                     <div class="name"> Products sold</div>
                                 </div>
                                 <div class="progress stat-progress">
