@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="form__group form__group--center">
-                    <button class="primary-btn primary-btn--search">18639</button>
+                    <button class="primary-btn primary-btn--search" id="primary-btn--search">18639</button>
                 </div>
         </div>
     </div>
@@ -133,62 +133,8 @@
         <div class="forSearchLoadCover"></div>
         <h3 class="title-secondary title-secondary--int">{{ trans('data.search-result') }}</h3>
         <div class="l-row">
-            {{--  @foreach($products as $p)
-                <div class="l-col-lg-4 l-col-md-6 l-col-int">
-                    <div class="product">
-                        <a href="{{ url('/inner/'.$p->id) }}" class="product__link">
-                            <div class="product__cover {{ $p->urgent ? 'urgent' : ''}}">
-                                <img src="{{ $p->main_image }}" alt="">
-                            </div>
-                            <h4 class="product__name">{{ getPropByLang($p->manufacturer,'name') }} {{ getPropByLang($p->models,'name') }}</h4>
-                            <div class="product__info">
-                                <div class="product__info-col">
-                                    <span class="product__info-item">{{ $p->year }}</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">{{ $p->gearbox }}</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">{{ $p->odometer }}km</span>
-                                </div>
-                            </div>
-                            <div class="product__desc">
-                                <p>
-                                    {{ substr(getPropByLang($p,'desc'), 0, 85)  . '...' }}
-                                </p>
-                            </div>
-                            <span class="product__price {{ $p->urgent ? 'product__price--urgent' : ''}}">${{ $p->price }}</span>
-                        </a>
-                    </div>
-                </div>
-            @endforeach  --}}
+
         </div>
-        <ul class="pagination">
-            <li class="pagination__item">
-                <a href="#" class="pagination__link pagination__link--prev secondary-btn secondary-btn--prev"
-                   disabled></a>
-            </li>
-
-            <li class="pagination__item">
-                <a href="#" class="pagination__link secondary-btn">1</a>
-            </li>
-
-            <li class="pagination__item">
-                <a href="#" class="pagination__link secondary-btn">2</a>
-            </li>
-
-            <li class="pagination__item">
-                <span class="pagination__link pagination__dotes secondary-btn">...</a>
-            </li>
-
-            <li class="pagination__item">
-                <a href="#" class="pagination__link secondary-btn">5</a>
-            </li>
-
-            <li class="pagination__item">
-                <a href="#" class="pagination__link pagination__link--next secondary-btn secondary-btn--next"></a>
-            </li>
-        </ul>
     </div>
 </section>
 @endsection

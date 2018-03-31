@@ -16,7 +16,6 @@ Route::group(
         Route::get('/', 'MainController@index');
         Route::get('/inner', 'MainController@inner');
         Route::get('/shop/{filter?}/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'MainController@shop');
-        // Route::get('/filter/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'MainController@filterProducts');
     }
 );
 
