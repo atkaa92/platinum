@@ -17,7 +17,6 @@ class CreateFinancesTable extends Migration
            $table->increments('id');
            $table->integer('product_id')->unsigned();
            $table->integer('price');
-           $table->timestamp('created_at');
 
             $table->index('product_id')
                 ->references('id')->on('products');
