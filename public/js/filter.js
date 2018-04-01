@@ -12,8 +12,37 @@ var filterQuery = {
 
 $(document).ready(function () {
 	if(window.location.href.split('/')[5] != null){
-		// var filterPiece = '/filter/make/model/yfrom/yto/all/all/all/6500/80000?page=2';
 		var filterPiece = window.location.href.split('shop')[1];
+		var segments = filterPiece.split('/')
+		var mytprice = segments[10].split('?')[0]
+		if(segments[4] != 'yfrom'){
+			$("#js-date-picker-from").datepicker({format: 'dd-mm-yyyy'}).datepicker('setDate', segments[4])
+			filterQuery.yfrom = segments[4]
+		}
+		if(segments[5] != 'yto'){
+			$("#js-date-picker-to").datepicker({format: 'dd-mm-yyyy'}).datepicker('setDate', segments[5])
+			filterQuery.yto = segments[5]
+		}
+		if(segments[6] != 'all'){
+			$('#mechanical').prop('checked', true);
+			filterQuery.mech = segments[6]
+		}
+		if(segments[7] != 'all'){
+			$('#automat').prop('checked', true);
+			filterQuery.auto = segments[7]
+		}
+		if(segments[8] != 'all'){
+			$('#other').prop('checked', true);
+			filterQuery.other = segments[8]
+		}
+		if(segments[9] != 'fprice'){
+			$('#slider-snap-value-lower').html(segments[9])
+			filterQuery.fprice = segments[9]
+		}
+		if(mytprice != 'tprice'){
+			$('#slider-snap-value-upper').text(mytprice)
+			filterQuery.tprice = mytprice
+		}
 	}else{
 		var filterPiece = '/filter/make/model/yfrom/yto/all/all/all/fprice/tprice';
 	}
@@ -28,22 +57,7 @@ $(document).on('change', 'select[name=make]', function () {
 		if(make == 'make'){
 				$('select[name=model]').html(`<option  value="model">-------</option>`)
 		}else{
-
 			$('.models-selectpicker').load('/getMakeModels/'+make)
-
-			// $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-			// $.post('/getMakeModels', {make, lang}, function(data, status){
-			// 	console.log(data);
-			// 	var options = '<option  value="model">-------</option>'
-			// 	$.each(data, function( k, v ) {
-             //        options += `<option value="`+v.id+`">`+v.name+`</option>`
-			// 	})
-             //    $('.models-select').html(options)
-			// 	$('.models-select').selectpicker({
-             //        style: 'btn-info',
-             //        size: 1000
-             //    });
-			// }, "json")
 		}
 		filterQuery.make = make
 })

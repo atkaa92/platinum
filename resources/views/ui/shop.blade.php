@@ -152,7 +152,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ asset('js/nouislider.min.js')}}"></script>
     <script src="{{ asset('js/owl.carousel.js')}}"></script>
-    <script src="{{ asset('js/filter.js')}}"></script>
     <script src="{{ asset('js/script.js')}}"></script>
     
     <script>
@@ -179,16 +178,17 @@
             var snapValues = [
                 document.getElementById('slider-snap-value-lower'),
                 document.getElementById('slider-snap-value-upper')
-            ];
-            snapSlider.noUiSlider.on('update', function (values, handle) {
-                snapValues[handle].innerHTML = values[handle];
-                if(handle){
-                    filterQuery.tprice = values[handle].slice(0, values[handle].indexOf('.'))
-                    
-                }else{
-                    filterQuery.fprice = values[handle].slice(0, values[handle].indexOf('.'))
-                }
+                ];
+                snapSlider.noUiSlider.on('update', function (values, handle) {
+                    snapValues[handle].innerHTML = values[handle];
+                    if(handle){
+                        filterQuery.tprice = values[handle].slice(0, values[handle].indexOf('.'))
+                        
+                    }else{
+                        filterQuery.fprice = values[handle].slice(0, values[handle].indexOf('.'))
+                    }
+                });
             });
-        });
-    </script>
+        </script>
+        <script src="{{ asset('js/filter.js')}}"></script>
 @endpush
