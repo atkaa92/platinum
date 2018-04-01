@@ -72,7 +72,7 @@ class ProductController extends Controller
         $model->model_id = $data['model'];
 
         if($model->save()){
-            return redirect()->back()->with('success', 'Product successfully created!');
+            return redirect()->back()->with('success', $id ? 'Product successfully updated!' : 'Product successfully created!');
         }
         return redirect()->back()->with('error', 'Server Error!');
     }

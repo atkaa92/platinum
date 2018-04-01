@@ -29,11 +29,13 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="l-col-md-4 l-col-md-int">
+                    <div class="l-col-md-4 l-col-md-int ">
                         <label class="form__label">{{ trans('data.model') }}</label>
-                        <select name="model" class="selectpicker filters__select">
-                            <option  value="model">-------</option>
-                        </select>
+                        <div class="models-selectpicker">
+                            <select name="model" class="selectpicker models-select filters__select">
+                                <option  value="model">-------</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="l-col-md-4 l-col-md-int">
                         <div id="js-daterange">

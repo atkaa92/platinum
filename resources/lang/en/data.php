@@ -47,7 +47,6 @@ return [
 	//inner
 	'releted-offers' => 'Releted offers',
 	'year' => 'Year',
-	'transmission-pack' => 'Transmission Pack',
 	'exterior-color' => 'Exterior Color',
 	'interior-type' => 'Interior Type',
 	'location' => 'Location',

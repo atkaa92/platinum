@@ -37,9 +37,15 @@ class MainController extends Controller
         return view('ui.shop')->with($data);
     }
 
-    public function inner()
+    public function inner($id)
     {
-        return view('ui.inner');
+        $product = Product::where('id',$id)
+            ->with(['manufacturer', 'models'])
+            ->first();
+        if(!$product){
+            return redirect()->back();
+        }
+        return view('ui.inner')->with(compact('product'));
     }
 
     public function sentMail()

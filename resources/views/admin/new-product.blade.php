@@ -139,16 +139,17 @@
                                 <label>Interior Type</label>
                                 <select name="interior" class="form-control boxed">
                                     <option value="" {{ $gen_id && !$edit_data->interior ? 'selected' : '' }}>-----------</option>
-                                    <option value="leather" {{ $gen_id && $edit_data->interior == 'leather' ? 'selected' : '' }}>Leather</option>
-                                    <option value="cloth" {{ $gen_id && $edit_data->interior == 'cloth' ? 'selected' : '' }}>Cloth</option>
+                                    @foreach(config('extra.interior') as $value => $name)
+                                        <option value="{{ $value }}" {{ $gen_id && $edit_data->interior == $value ? 'selected' : '' }}>{{ $name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
                                 <label>Gearbox</label>
                                 <select required name="gearbox" class="form-control boxed">
-                                    <option value="semi-automatic" {{ $gen_id && $edit_data->gearbox == 'semi-automatic' ? 'selected' : '' }}>Semi-automatic</option>
-                                    <option value="manual" {{ $gen_id && $edit_data->gearbox == 'manual' ? 'selected' : '' }}>Manual</option>
-                                    <option value="automatic" {{ $gen_id && $edit_data->gearbox == 'automatic' ? 'selected' : '' }}>Automatic</option>
+                                    @foreach(config('extra.gearbox') as $value => $gearbox)
+                                        <option value="{{ $value }}" {{ $gen_id && $edit_data->gearbox == $value ? 'selected' : '' }}>{{ $gearbox }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -164,8 +165,9 @@
                             <div class="col-md-6">
                                 <label>Location</label>
                                 <select required name="location" class="form-control boxed">
-                                    <option value="armenia" {{ $gen_id && $edit_data->location == 'armenia' ? 'selected' : ''}}>Armenia</option>
-                                    <option value="usa" {{ $gen_id && $edit_data->location == 'usa' ? 'selected' : '' }}>USA</option>
+                                    @foreach(config('extra.location') as $value => $name)
+                                        <option value="{{ $value }}" {{ $gen_id && $edit_data->location == $value ? 'selected' : ''}}>{{ $name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

@@ -28,14 +28,22 @@ $(document).on('change', 'select[name=make]', function () {
 		if(make == 'make'){
 				$('select[name=model]').html(`<option  value="model">-------</option>`)
 		}else{
-			$.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-			$.post('/getMakeModels', {make, lang}, function(data, status){
-				console.log(data);
-				$('select[name=model]').html(`<option  value="model">-------</option>`)
-				$.each(data, function( k, v ) {
-						$('select[name=model]').append(`<option value="`+v.id+`">`+v.name+`</option>`)
-				})
-			}, "json")
+
+			$('.models-selectpicker').load('/getMakeModels/'+make)
+
+			// $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+			// $.post('/getMakeModels', {make, lang}, function(data, status){
+			// 	console.log(data);
+			// 	var options = '<option  value="model">-------</option>'
+			// 	$.each(data, function( k, v ) {
+             //        options += `<option value="`+v.id+`">`+v.name+`</option>`
+			// 	})
+             //    $('.models-select').html(options)
+			// 	$('.models-select').selectpicker({
+             //        style: 'btn-info',
+             //        size: 1000
+             //    });
+			// }, "json")
 		}
 		filterQuery.make = make
 })

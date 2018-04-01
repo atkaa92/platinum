@@ -26,4 +26,20 @@
         "diesel" => "Diesel",
         "gasoline" => "Gasoline"
     ],
+
+    'gearbox' => [
+        'semi-automatic' => 'Semi-automatic',
+        'manual' => 'Manual',
+        'automatic' => 'Automatic'
+    ],
+
+    'interior' => [
+        'leather' => 'Leather',
+        'cloth' => 'Cloth',
+    ],
+
+    'location' => [
+        'armenia' => 'Armenia',
+        'usa' => 'USA'
+    ]
  ];

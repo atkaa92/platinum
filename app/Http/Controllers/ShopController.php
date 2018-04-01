@@ -39,9 +39,9 @@ class ShopController extends Controller
         return view('ui.includes.filterProducts')->with(compact('filterProducts', 'filterProductsCount', 'links'));
     }
 
-    public function getMakeModels(Request $request)
+    public function getMakeModels($id)
     {
-        $models = Model::select($request->lang.'_name as name', 'id')->where('mark_id', request('make'))->get();
-        echo json_encode($models);
+        $models = Model::where('mark_id', $id)->get();
+        return view('ui.includes.selectpicker')->with(compact('models'));
     }
 }
