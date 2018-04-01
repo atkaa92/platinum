@@ -165,9 +165,19 @@
                 autoclose: true,
                 format: 'dd-mm-yyyy',
             });
+
+            var myfprice = 20000;
+            var mytprice = 80000;
+            if(window.location.href.split('/')[5] != null){
+                var filterPiece = window.location.href.split('shop')[1];
+                segments = filterPiece.split('/')
+                myfprice = segments[9]
+                mytprice = segments[10].split('?')[0]
+            }
+            
             var snapSlider = document.getElementById('slider-snap');
             noUiSlider.create(snapSlider, {
-                start: [20000, 80000],
+                start: [myfprice, mytprice],
                 step: 100,
                 connect: true,
                 range: {
