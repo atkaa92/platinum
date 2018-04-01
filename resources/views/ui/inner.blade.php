@@ -64,7 +64,19 @@
                                 <span class="car-info__price car-info__price--urgent">${{ $product->price }}</span>
                             </div>
                             <div class="car-info__right">
-                                fb share
+                                <a target="_blank" style="
+                                    background-size: 25px;
+                                    background-repeat: no-repeat;
+                                    background-position: top left;
+                                    width: 100%;
+                                    display: inline-block;
+                                    background-color: #3b5998;
+                                    color: #fff;
+                                    padding: 5px 10px;
+                                    border-radius: 5px;
+                                    padding-left: 30px;
+                                    background-image: url('{{ asset('images/fb.png') }}'); "
+                                    href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}"> Share</a>
                             </div>
                         </div>
                         <div class="car-info__body">
@@ -94,18 +106,13 @@
                                     {{ trans('data.fuel-used') }}: <span>{{ $product->fuel ? trans("details.fuel.$product->fuel") : '------------' }}</span>
                                 </li>
                                 <li class="car-info__list-item">
-                                    {{ trans('data.custom-clearance') }}: <span>Passed</span>
+                                    {{ trans('data.custom-clearance') }}: <span>{{ trans("details.clearance.$product->clearance") }}</span>
                                 </li>
                             </ul>
                             <article class="car-info__desc">
                                 <h4 class="car-info__title">{{ trans('data.description') }}</h4>
                                 <p>
-                                    Prior-Design has released new pics of their PD75SC wide-body kit. We got
-                                    our first look at this product a few months back. Looking at the exterior, it’s
-                                    hard to miss all the changes brought forth by the aero kit. It adds new front
-                                    & rear bumpers, a front add-on lip spoiler, rear diffuser, front vent
-                                    inserts/frames, wide-body fenders, rear lower add-on spoiler and side skirts
-                                    with an add-on lip spoiler.
+                                    {{ getPropByLang($product, 'desc') }}
                                 </p>
                             </article>
                         </div>
@@ -129,126 +136,37 @@
                 <button class="secondary-btn secondary-btn--next carousel__btn carousel__btn--next js-car-next">next
                 </button>
                 <div class="owl-carousel">
-                    <div class="product">
-                        <a href="#" class="product__link">
-                            <div class="product__cover product__cover--urgent">
-                                <img src="{{ asset('images/1.jpg') }}" alt="">
-                            </div>
-
-                            <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                            <div class="product__info">
-                                <div class="product__info-col">
-                                    <span class="product__info-item">2017</span>
+                    @foreach($related as $rel)
+                        <div class="product">
+                            <a href="#" class="product__link">
+                                <div class="product__cover product__cover--urgent {{ $rel->urgent ? 'urgent' : '' }}">
+                                    <img src="{{ $rel->main_image }}" alt="">
                                 </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">Automat</span>
+
+                                <h4 class="product__name">{{ getPropByLang($rel->manufacturer, 'name').' '.getPropByLang($rel->models, 'name') }}</h4>
+
+                                <div class="product__info">
+                                    <div class="product__info-col">
+                                        <span class="product__info-item">{{ $rel->year }}</span>
+                                    </div>
+                                    <div class="product__info-col">
+                                        <span class="product__info-item">{{ trans("details.gearbox.$rel->gearbox") }}</span>
+                                    </div>
+                                    <div class="product__info-col">
+                                        <span class="product__info-item">{{ $rel->odometer }}</span>
+                                    </div>
                                 </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">170000km</span>
+
+                                <div class="product__desc">
+                                    <p>
+                                        {{ substr(getPropByLang($rel, 'desc'), 0, 100 ) }}
+                                    </p>
                                 </div>
-                            </div>
 
-                            <div class="product__desc">
-                                <p>
-                                    Morbi enim mauris, commodo vitae sapien eu,
-                                    condimentum congue leo. . Phasellus porttitor
-                                </p>
-                            </div>
-
-                            <span class="product__price product__price--urgent">$34000</span>
-                        </a>
-                    </div>
-                    <div class="product">
-                        <a href="#" class="product__link">
-                            <div class="product__cover product__cover--urgent">
-                                <img src="{{ asset('images/1.jpg') }}" alt="">
-                            </div>
-
-                            <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                            <div class="product__info">
-                                <div class="product__info-col">
-                                    <span class="product__info-item">2017</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">Automat</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">170000km</span>
-                                </div>
-                            </div>
-
-                            <div class="product__desc">
-                                <p>
-                                    Morbi enim mauris, commodo vitae sapien eu,
-                                    condimentum congue leo. . Phasellus porttitor
-                                </p>
-                            </div>
-
-                            <span class="product__price product__price--urgent">$34000</span>
-                        </a>
-                    </div>
-                    <div class="product">
-                        <a href="#" class="product__link">
-                            <div class="product__cover product__cover--urgent">
-                                <img src="{{ asset('images/1.jpg') }}" alt="">
-                            </div>
-
-                            <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                            <div class="product__info">
-                                <div class="product__info-col">
-                                    <span class="product__info-item">2017</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">Automat</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">170000km</span>
-                                </div>
-                            </div>
-
-                            <div class="product__desc">
-                                <p>
-                                    Morbi enim mauris, commodo vitae sapien eu,
-                                    condimentum congue leo. . Phasellus porttitor
-                                </p>
-                            </div>
-
-                            <span class="product__price product__price--urgent">$34000</span>
-                        </a>
-                    </div>
-                    <div class="product">
-                        <a href="#" class="product__link">
-                            <div class="product__cover product__cover--urgent">
-                                <img src="{{ asset('images/1.jpg') }}" alt="">
-                            </div>
-
-                            <h4 class="product__name">Ferrari 812 Superfast – 789 hp</h4>
-
-                            <div class="product__info">
-                                <div class="product__info-col">
-                                    <span class="product__info-item">2017</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">Automat</span>
-                                </div>
-                                <div class="product__info-col">
-                                    <span class="product__info-item">170000km</span>
-                                </div>
-                            </div>
-
-                            <div class="product__desc">
-                                <p>
-                                    Morbi enim mauris, commodo vitae sapien eu,
-                                    condimentum congue leo. . Phasellus porttitor
-                                </p>
-                            </div>
-
-                            <span class="product__price product__price--urgent">$34000</span>
-                        </a>
-                    </div>
+                                <span class="product__price product__price--urgent">${{ $rel->price }}</span>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

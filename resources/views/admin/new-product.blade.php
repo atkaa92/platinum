@@ -82,7 +82,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row" style="margin-bottom: 7px;">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <label>Clearance</label>
+                                <div class="in-store">
+                                    <label>
+                                        <input type="checkbox" {{ $gen_id && $edit_data->clearance ? 'checked' : ''}} {{ !$gen_id ? 'checked' : ''}} name="clearance">
+                                        <i></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <label>In store</label>
                                 <div class="in-store">
                                     <label>
@@ -91,7 +100,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Urgent</label>
                                 <div class="in-store">
                                     <label>
@@ -100,7 +109,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label>Color</label>
                                 <input required name="color" value="{{ $gen_id ? $edit_data->color : false }}" type="color" class="form-control boxed input-block">
                                 <span class="color-picker" style="background: {{!$gen_id ?: $edit_data->color}}">

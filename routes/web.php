@@ -14,7 +14,7 @@ Route::group(
     {
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
         Route::get('/', 'MainController@index');
-        Route::get('/inner/{id}', 'MainController@inner');
+        Route::get('/inner/{id}', 'MainController@inner')->name('inner');
         Route::get('/shop/{filter?}/{make?}/{model?}/{yFrom?}/{yTo?}/{mech?}/{auto?}/{other?}/{fPrice?}/{tPrice?}', 'MainController@shop');
     }
 );

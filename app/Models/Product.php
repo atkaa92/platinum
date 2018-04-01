@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $guarded = [''];
+
     public function models(){
         return $this->belongsTo('App\Models\Model', 'model_id', 'id');
     }

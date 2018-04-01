@@ -42,6 +42,10 @@ return [
     'location' => [
         'armenia' => 'Armenia',
         'usa' => 'USA'
-    ]
+    ],
 
+    'clearance' => [
+        '0' => 'Not passed',
+        '1' => 'Passed',
+    ]
 ];

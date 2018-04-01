@@ -59,6 +59,7 @@ class ProductController extends Controller
         $model->main_image = isset($data['main-image']) ? $data['main-image'] : $data['product-image'][0];
         $model->images = serialize($data['product-image']);
         $model->in_store = isset($data['in-store']) ? 1 : 0;
+        $model->clearance = isset($data['clearance']) ? 1 : 0;
         $model->urgent = isset($data['urgent']) ? 1 : 0;
         $model->color = $data['color'];
         $model->year = $data['year'];

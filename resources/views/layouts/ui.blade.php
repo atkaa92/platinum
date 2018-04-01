@@ -10,6 +10,14 @@
         @stack('stylesheets')
         <link rel="stylesheet" href="{{ asset('css/style.css')}}">
         <link rel="stylesheet" href="{{ asset('css/uiStyle.css')}}">
+
+        @if(Route::currentRouteName() == 'inner')
+            <meta property="og:title" content="{{ getPropByLang($product->manufacturer, 'name').' '.getPropByLang($product->models, 'name') }}"/>
+            <meta property="og:type" content="article"/>
+            <meta property="og:image" content="{{ $product->main_image }}"/>
+            <meta property="og:site_name" content="Plationum"/>
+            <meta property="og:description" content="{{ getPropByLang($product, 'desc') }}"/>
+        @endif
     </head>
     <body>
         <div class="body">

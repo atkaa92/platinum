@@ -6,6 +6,7 @@ use App\Models\Config;
 use App\Models\Service;
 use App\Models\Product;
 use App\Models\Manufacturer;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -39,13 +40,45 @@ class MainController extends Controller
 
     public function inner($id)
     {
-        $product = Product::where('id',$id)
-            ->with(['manufacturer', 'models'])
-            ->first();
+        $product = Product::find($id);
         if(!$product){
             return redirect()->back();
         }
-        return view('ui.inner')->with(compact('product'));
+
+        $related = Product::where('model_id', $product->model_id)
+            ->where('id','<>', $id)
+            ->orderBy('id', 'desc')
+            ->limit(3)
+            ->get()->toArray();
+
+
+        if(count($related) <= 3){
+            $related_with_manufacturer = Product::where('manufacture', $product->manufacturer->id)
+                    ->where('id','<>', $id)
+                    ->orderBy('id', 'desc')
+                    ->limit(3 - count($related))
+                    ->get()->toArray();
+
+            $related = array_merge($related, $related_with_manufacturer);
+
+            if(count($related) < 3){
+                $random = Product::where('manufacture', '<>', $product->manufacturer->id)
+                    ->orderBy('id','desc')
+                    ->limit(3 - count($related))
+                    ->get()->toArray();
+
+                $related = array_merge($related, $random);
+            };
+
+            foreach ($related  as $index => $rel){
+                $related[$index] = new Product($rel);
+            }
+        }else{
+            $related = $related->get();
+        }
+
+
+        return view('ui.inner')->with(compact('product', 'related'));
     }
 
     public function sentMail()
