@@ -15,6 +15,16 @@ $(document).ready(function () {
 		var filterPiece = window.location.href.split('shop')[1];
 		var segments = filterPiece.split('/')
 		var mytprice = segments[10].split('?')[0]
+        if(segments[2] != 'make'){
+            $('select[name=make]').val(segments[2]);
+            $('.selectpicker').selectpicker('refresh')
+        }
+        if(segments[3] != 'model'){
+            $('.models-selectpicker').load('/getMakeModels/'+segments[2],function () {
+                $('select[name=model]').val(segments[3]);
+                $('.selectpicker').selectpicker('refresh')
+            })
+        }
 		if(segments[4] != 'yfrom'){
 			$("#js-date-picker-from").datepicker({format: 'dd-mm-yyyy'}).datepicker('setDate', segments[4])
 			filterQuery.yfrom = segments[4]

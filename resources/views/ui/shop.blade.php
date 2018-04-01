@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div class="form__group form__group--center">
-                    <button class="primary-btn primary-btn--search" id="primary-btn--search">18639</button>
+                    <button class="primary-btn primary-btn--search" id="primary-btn--search">{{ $count }}</button>
                 </div>
         </div>
     </div>

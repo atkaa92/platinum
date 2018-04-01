@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\Product;
 use App\Models\Manufacturer;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,10 +20,12 @@ class MainController extends Controller
         $configs = Config::first();
         $abouts = About::get();
         $services = Service::get();
+        $body_counts = DB::select('SELECT COUNT(id) as c, body as b FROM products GROUP BY body');
         $data = [
             'configs' => $configs,
             'abouts' => $abouts,
-            'services' => $services
+            'services' => $services,
+            'body_counts' => $body_counts
         ];
         return view('ui.index')->with($data);
     }
@@ -31,9 +34,11 @@ class MainController extends Controller
     {
         $urgents = Product::with(['models', 'manufacturer'])->where('urgent', 1)->get();
         $manufacturers = Manufacturer::get();
+        $count = Product::count();
         $data= [
             'urgents' => $urgents,
-            'manufacturers' => $manufacturers
+            'manufacturers' => $manufacturers,
+            'count' => $count
         ];
         return view('ui.shop')->with($data);
     }

@@ -110,26 +110,12 @@
     <div class="l-container">
         <h2 class="title-secondary title-secondary--light title-secondary--int">{{ trans('data.we-deal') }}</h2>
         <ul class="statistics">
-            <li class="statistics__item">
-                <span class="statistics__number">15</span>
-                <h4 class="statistics__title">{{ trans('data.motocrycle') }}</h4>
-            </li>
-            <li class="statistics__item">
-                <span class="statistics__number">58</span>
-                <h4 class="statistics__title">{{ trans('data.coupe') }}</h4>
-            </li>
-            <li class="statistics__item">
-                <span class="statistics__number">64</span>
-                <h4 class="statistics__title">{{ trans('data.sedan') }}</h4>
-            </li>
-            <li class="statistics__item">
-                <span class="statistics__number">120</span>
-                <h4 class="statistics__title">{{ trans('data.suv') }}</h4>
-            </li>
-            <li class="statistics__item">
-                <span class="statistics__number">7</span>
-                <h4 class="statistics__title">{{ trans('data.luxury-car') }}</h4>
-            </li>
+            @foreach($body_counts as $b)
+                <li class="statistics__item">
+                    <span class="statistics__number">{{ $b->c }}</span>
+                    <h4 class="statistics__title">{{ trans("details.body.$b->b") }}</h4>
+                </li>
+            @endforeach
         </ul>
         <a href="{{ url('/shop') }}" class="primary-btn banner__btn">{{ trans('data.go-to-shop') }}</a>
     </div>
