@@ -34,7 +34,7 @@ class ShopController extends Controller
             $filterProducts = $filterProducts->whereIn('gearbox', $gearbox);
         }
         $filterProductsCount = $filterProducts->count();
-        $filterProducts = $filterProducts->paginate(1)->setPath('/shop/'.request()->path());
+        $filterProducts = $filterProducts->paginate(6)->setPath('/shop/'.request()->path());
         $links = $filterProducts->links();
         return view('ui.includes.filterProducts')->with(compact('filterProducts', 'filterProductsCount', 'links'));
     }

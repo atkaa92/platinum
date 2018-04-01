@@ -12,6 +12,7 @@ var filterQuery = {
 
 $(document).ready(function () {
 	if(window.location.href.split('/')[5] != null){
+		// var filterPiece = '/filter/make/model/yfrom/yto/all/all/all/6500/80000?page=2';
 		var filterPiece = window.location.href.split('shop')[1];
 	}else{
 		var filterPiece = '/filter/make/model/yfrom/yto/all/all/all/fprice/tprice';
@@ -88,3 +89,13 @@ $(document).on('click', '.primary-btn--search', function () {
 	})
 })
 
+$(document).on('click', '.pagination li a', function (event) {
+	event.preventDefault();
+	var nnewHref = $(this).attr('href').split('shop')[1];
+	var lang = window.location.href.split('/')[3];
+	var nnewHrefWithLang = '/'+lang+'/shop'+nnewHref;
+	$(".forSearchLoad .product").addClass('afterSearch')
+	$('.forSearchLoad .l-row').load(nnewHref,function () {
+			history.pushState(null, null,nnewHrefWithLang);			
+	})
+})
