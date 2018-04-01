@@ -10,7 +10,8 @@ class ShopController extends Controller
 {
     public function filterProducts($make = false, $model = false, $yFrom = false, $yTo = false, $mech = false, $auto = false, $other = false, $fPrice = false, $tPrice = false)
     {
-        $filterProducts = Product::with(['models', 'manufacturer']);
+        $filterProducts = Product::with(['models', 'manufacturer'])->where('buyed', 0)
+            ->where('in_store',1);
         if($make != 'make'){
             $filterProducts = $filterProducts->where('manufacture', $make);
         }

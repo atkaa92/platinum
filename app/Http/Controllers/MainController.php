@@ -32,9 +32,11 @@ class MainController extends Controller
 
     public function shop()
     {
-        $urgents = Product::with(['models', 'manufacturer'])->where('urgent', 1)->get();
+        $urgents = Product::with(['models', 'manufacturer'])->where('urgent', 1)->where('buyed', 0)
+            ->where('in_store',1)->get();
         $manufacturers = Manufacturer::get();
-        $count = Product::count();
+        $count = Product::where('buyed', 0)
+            ->where('in_store',1)->count();
         $data= [
             'urgents' => $urgents,
             'manufacturers' => $manufacturers,

@@ -4,8 +4,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 
     <div class="title-block">
-        <h3 class="title"> Add new product </h3>
-        <p class="title-description"> Add new product </p>
+        <h3 class="title">{{ $gen_id ? $edit_data->manufacturer()->first()->en_name.' '.$edit_data->models()->first()->en_name : 'Add new product' }}</h3>
+        <p class="title-description"> {{ $gen_id ? 'Edit this' : 'Add new' }} product </p>
     </div>
     @include('admin.messages')
     <section class="section">
