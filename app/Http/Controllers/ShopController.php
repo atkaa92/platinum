@@ -15,7 +15,7 @@ class ShopController extends Controller
             $filterProducts = $filterProducts->where('manufacture', $make);
         }
         if($model != 'model'){
-            $filterProducts = $filterProducts->where('model_id', $make);
+            $filterProducts = $filterProducts->where('model_id', $model);
         }
         if($yFrom != 'yfrom'){
             $filterProducts = $filterProducts->where('year', '>=' , substr($yFrom,6));

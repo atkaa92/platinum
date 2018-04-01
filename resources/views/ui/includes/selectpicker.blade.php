@@ -1,5 +1,5 @@
 <select name="model" class="selectpicker models-select filters__select">
-    <option  value="">-------</option>
+    <option  value="model">-------</option>
     @foreach($models as $model)
         <option  value="{{ $model->id }}">{{ getPropByLang($model, 'name') }}</option>
     @endforeach
