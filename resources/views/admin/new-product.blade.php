@@ -95,7 +95,7 @@
                                 <label>In store</label>
                                 <div class="in-store">
                                     <label>
-                                        <input type="checkbox" {{ $gen_id && $edit_data->in_store ? 'checked' : ''}} name="in-store">
+                                        <input type="checkbox" {{ $gen_id && $edit_data->in_store ? 'checked' : ''}} {{ !$gen_id ? 'checked' : ''}} name="in-store">
                                         <i></i>
                                     </label>
                                 </div>
