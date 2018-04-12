@@ -44,7 +44,7 @@ Route::group([
     Route::get('/remove/{id}', 'ProductController@removeProduct');
     Route::get('/sold/{id}/{price}', 'ProductController@buyProduct');
     Route::get('/search/{man}/{sold}/{mod?}', 'ProductController@filter');
-    Route::get('/manifactures', 'ProductController@getManufactures');
+    Route::get('/manufactures', 'ProductController@getManufactures');
     Route::post('/save-manufactures', 'ProductController@saveManufactures');
     Route::get('/remove-manufacture/{manufacture_id}', 'ProductController@removeManufacturerById');
 

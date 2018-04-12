@@ -96,8 +96,8 @@
                                     </ul>
                                 </li>
                                 <li class="{{ $currPage == 'manifactures' ? 'active' : '' }}">
-                                    <a href="{{ url('admin/manifactures') }}">
-                                        <i class="fa fa-anchor"></i> Manifactures
+                                    <a href="{{ url('admin/manufactures') }}">
+                                        <i class="fa fa-anchor"></i> Manufactures
                                     </a>
                                 </li>
                                 <li class="{{ $currPage == 'services' ? 'active' : '' }}">
