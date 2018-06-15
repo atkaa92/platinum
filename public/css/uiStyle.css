@@ -170,3 +170,18 @@
 		font:17px montserrat_r;
 	}
 }
+
+@media (min-width: 1700px){
+	.carousel__btn {
+		top: 0 !important;
+	}
+	.carousel__btn--next{
+		margin-right: -75px!important;
+	}
+	.carousel__btn--prev{
+		margin-left: -75px !important;
+	}
+	.carousel {
+    padding-top: 100px !important;
+}
+}
