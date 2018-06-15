@@ -163,7 +163,9 @@
             
             $('#js-date-picker-from, #js-date-picker-to').datepicker({
                 autoclose: true,
-                format: 'dd-mm-yyyy',
+                format: "yyyy",
+                viewMode: "years", 
+                minViewMode: "years"
             });
 
             var myfprice = 20000;

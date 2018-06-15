@@ -19,10 +19,10 @@ class ShopController extends Controller
             $filterProducts = $filterProducts->where('model_id', $model);
         }
         if($yFrom != 'yfrom'){
-            $filterProducts = $filterProducts->where('year', '>=' , substr($yFrom,6));
+            $filterProducts = $filterProducts->where('year', '>=' , $yFrom);
         }
         if($yTo != 'yto'){
-            $filterProducts = $filterProducts->where('year', '<=' , substr($yTo,6));
+            $filterProducts = $filterProducts->where('year', '<=' , $yTo);
         }
         if($fPrice != 'fprice'){
             $filterProducts = $filterProducts->where('price', '>=' , $fPrice);
